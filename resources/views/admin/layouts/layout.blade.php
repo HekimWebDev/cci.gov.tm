@@ -8,16 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/admin/css/admin.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/lib/fontawesome-free/css/all.css') }}">
+{{--    <link rel="stylesheet" href="{{ asset('assets/lib/fontawesome-free/css/all.css') }}">--}}
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+{{--    <link rel="stylesheet" href="{{asset('assets/lib/fontawesome-free-6.0.0-beta3-web/css/fontawesome.css')}}">--}}
     <link rel="stylesheet" href="{{ asset('assets/lib/daterangepicker-master/daterangepicker.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/front/css/ckeditot-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/ckeditor-style.css') }}">
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('assets/front/css/breadcrumbs.css') }}">
     <style>
         .ck-editor__editable_inline {
             min-height: 200px;
         }
-
     </style>
 </head>
 
@@ -506,8 +507,8 @@
     <script src="{{ asset('assets/lib/jquery-validation/jquery.form.js') }}"></script>
     <script src="{{ asset('assets/lib/jquery-validation/jquery-validation-bootstrap-tooltip.js') }}"></script>
     {{-- ckeditor --}}
-    @foreach ($urls as $url)
-        @if (request()->is("*/{$url}/create", "parcipants_events/create"))
+{{--    @foreach ($urls as $url)--}}
+{{--        @if (request()->is("*/{$url}/edit", "parcipants_events/create"))--}}
         <script>
             // ru
             ClassicEditor
@@ -683,9 +684,9 @@
             //     console.error(error);
             // });
         </script>
-        @break(request()->is("parcipants_events/create"))
-        @endif
-    @endforeach
+{{--        @break(request()->is("parcipants_events/create"))--}}
+{{--        @endif--}}
+{{--    @endforeach--}}
     @if (request()->is('*/conferences/create'))
     <script>
         // ru
