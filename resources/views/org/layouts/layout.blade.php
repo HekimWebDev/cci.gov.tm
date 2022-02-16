@@ -191,7 +191,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @lang('home/home.header.navbar_li_conferences')</a>
-                            <div class="dropdown-menu header_dropdown_menu" aria-labelledby="navbarDropdownMenuLink">
+                            <div class="dropdown-menu dropdown-menu-right header_dropdown_menu" aria-labelledby="navbarDropdownMenuLink">
                                 @foreach ($conf as $c)
                                     <a class="dropdown-item" href="{{ route('conferences', $c->slug) }}">
                                         {{ $c->__('name') }}

@@ -42,9 +42,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="">Описание*</label>
+                                <label for="desc">Описание*</label>
                                 <textarea class="form-control @error('desc') is-invalid @enderror" name="desc" id="desc"
-                                    rows="5" placeholder="Описание" required>{{ old('desc') }}</textarea>
+                                    rows="5" placeholder="Описание">{{ old('desc') }}</textarea>
                             </div>
 
                             <div class="form-group">

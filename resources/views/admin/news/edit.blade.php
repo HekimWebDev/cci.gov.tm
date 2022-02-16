@@ -48,7 +48,7 @@
                                 <div class="form-group">
                                     <label for="desc">Описание (русский)*</label>
                                     <textarea class="form-control @error('desc') is-invalid @enderror" name="desc" id="desc"
-                                        required rows="5" placeholder="Описание">{{ $news->desc }}</textarea>
+                                        required rows="5" placeholder="Описание">{!! $news->desc !!}</textarea>
                                 </div>
 
                                 <div class="form-group">

@@ -13,7 +13,7 @@ return [
         'navbar_li_a_joining' => 'Agzalylyga girmek',
         'navbar_li_business_info' => 'Işewürlik maglumat',
         'navbar_li_a_tenders' => 'Bäsleşikler',
-        'navbar_li_a_partners' => 'TSSE-nyň yhtybarly işewür hyzmatdaşlary',
+        'navbar_li_a_partners' => 'TSSE-nyň ygtybarly işewür hyzmatdaşlary',
         'navbar_li_a_tm-offers' => 'Türkmenistanly önüm öndürijileriň söwda teklipleri',
         'navbar_li_a_fo-offers' => 'Daşary ýurtly hyzmatdaşlaryň söwda teklipleri',
         'navbar_li_investment_activity' => 'Maýa goýum işi',

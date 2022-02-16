@@ -87,19 +87,19 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="content">Содержание*</label>
+                                    <label for="content">Содержание <small style="color: red">* теперь не обязательно</small></label>
                                     <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content"
                                         rows="5" placeholder="Содержание" required>{{ $conferences->content }}</textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="content_en">Содержание (english)</label>
+                                    <label for="content_en">Содержание (english) <small style="color: red">* теперь не обязательно</small></label>
                                     <textarea class="form-control @error('content_en') is-invalid @enderror" name="content_en"
                                         id="content_en" rows="5" placeholder="english">{{ $conferences->content_en }}</textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="content_tk">Содержание (türkmen)</label>
+                                    <label for="content_tk">Содержание (türkmen) <small style="color: red">* теперь не обязательно</small></label>
                                     <textarea class="form-control @error('content_tk') is-invalid @enderror" name="content_tk"
                                         id="content_tk" rows="5" placeholder="türkmen">{{ $conferences->content_tk }}</textarea>
                                 </div>
