@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
         });
         view()->composer('admin.layouts.layout', function ($view) {
             $view->with('urls', [
-                'news', 'partners', 'tenders', 'news_cci',
+                'news', 'news/212/edit', 'partners', 'tenders', 'news_cci',
                 'parcipants_events', 'fo_offers', 'conferences', 'branches', 'abouts', 'memberships', 'investments'
             ]);
         });

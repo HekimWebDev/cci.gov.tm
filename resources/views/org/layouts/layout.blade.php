@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('assets/lib/owlcarousel/assets/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/lib/owlcarousel/assets/owl.theme.default.min.css') }}">
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
-    <link rel="stylesheet" href="{{ asset('assets/front/css/ckeditot-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/ckeditor-style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/lib/ekko-lightbox/ekko-lightbox.css') }}">
     <title>@yield('title')</title>
     {{-- <script src="//code.jivosite.com/widget/A1kOdRiXYs" async></script> --}}

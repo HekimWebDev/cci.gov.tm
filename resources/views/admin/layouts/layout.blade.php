@@ -8,18 +8,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/admin/css/admin.css') }}">
+<<<<<<< HEAD
     {{--    <link rel="stylesheet" href="{{ asset('assets/lib/fontawesome-free/css/all.css') }}">--}}
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+=======
+{{--    <link rel="stylesheet" href="{{ asset('assets/lib/fontawesome-free/css/all.css') }}">--}}
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+{{--    <link rel="stylesheet" href="{{asset('assets/lib/fontawesome-free-6.0.0-beta3-web/css/fontawesome.css')}}">--}}
+>>>>>>> de06e74b160c55caabdc0cccf34803dad11926ec
     <link rel="stylesheet" href="{{ asset('assets/lib/daterangepicker-master/daterangepicker.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/front/css/ckeditot-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/ckeditor-style.css') }}">
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('assets/front/css/breadcrumbs.css') }}">
     <style>
         .ck-editor__editable_inline {
             min-height: 200px;
         }
-
     </style>
 </head>
 
@@ -484,10 +489,44 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <div class="content-wrapper">
         @yield('content')
     </div>
     <!-- /.content-wrapper -->
+=======
+    <!-- ./wrapper -->
+
+    <script src="{{ asset('assets/admin/js/admin.js') }}"></script>
+    <script src="{{ asset('assets/lib/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/lib/jquery.inputmask.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/lib/daterangepicker/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/lib/daterangepicker-master/daterangepicker.js') }}"></script>
+    <script src="{{ asset('assets/admin/ckeditor5/build/ckeditor.js') }}"></script>
+    <script src="{{ asset('assets/admin/ckfinder/ckfinder.js') }}"></script>
+    <script src="{{ asset('assets/lib/jquery-validation/jquery.validate.js') }}"></script>
+    <script src="{{ asset('assets/lib/jquery-validation/jquery.form.js') }}"></script>
+    <script src="{{ asset('assets/lib/jquery-validation/jquery-validation-bootstrap-tooltip.js') }}"></script>
+    {{-- ckeditor --}}
+{{--    @foreach ($urls as $url)--}}
+{{--        @if (request()->is("*/{$url}/edit", "parcipants_events/create"))--}}
+        <script>
+            // ru
+            ClassicEditor
+                .create(document.querySelector('#desc'), {
+                    ckfinder: {
+                        uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+                    },
+                    image: {
+                        // You need to configure the image toolbar, too, so it uses the new style buttons.
+                        toolbar: ['imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full',
+                            'imageStyle:alignRight', '|', 'resizeImage',
+                        ],
+
+                        styles: [
+                            // Эта опция равна ситуации, когда стиль не применяется.
+                            'full',
+>>>>>>> de06e74b160c55caabdc0cccf34803dad11926ec
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -587,6 +626,7 @@
                     // This represents an image aligned to the left.
                     'alignLeft',
 
+<<<<<<< HEAD
                     // This represents an image aligned to the right.
                     'alignRight'
                 ]
@@ -636,6 +676,63 @@
                 toolbar: ['imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full',
                     'imageStyle:alignRight', '|', 'resizeImage',
                 ],
+=======
+                            // This represents an image aligned to the right.
+                            'alignRight'
+                        ]
+                    },
+                    toolbar: {
+                        items: [
+                            'heading',
+                            '|',
+                            'bold',
+                            'italic',
+                            'link',
+                            'bulletedList',
+                            'numberedList',
+                            '|',
+                            'indent',
+                            'outdent',
+                            'alignment',
+                            '|',
+                            'blockQuote',
+                            'insertTable',
+                            'undo',
+                            'redo',
+                            'CKFinder',
+                            'mediaEmbed'
+                        ]
+                    },
+                    language: 'ru',
+                    table: {
+                        contentToolbar: [
+                            'tableColumn',
+                            'tableRow',
+                            'mergeTableCells'
+                        ]
+                    },
+                })
+            // .catch(function(error) {
+            //     console.error(error);
+            // });
+        </script>
+{{--        @break(request()->is("parcipants_events/create"))--}}
+{{--        @endif--}}
+{{--    @endforeach--}}
+    @if (request()->is('*/conferences/create'))
+    <script>
+        // ru
+        ClassicEditor
+            .create(document.querySelector('#content'), {
+                ckfinder: {
+                    uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+                },
+                image: {
+                    // You need to configure the image toolbar, too, so it uses the new style buttons.
+                    toolbar: ['imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full',
+                        'imageStyle:alignRight', '|', 'resizeImage',
+                    ],
+>>>>>>> de06e74b160c55caabdc0cccf34803dad11926ec
 
                 styles: [
                     // This option is equal to a situation where no style is applied.
