@@ -8,15 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/admin/css/admin.css') }}">
-<<<<<<< HEAD
     {{--    <link rel="stylesheet" href="{{ asset('assets/lib/fontawesome-free/css/all.css') }}">--}}
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-=======
-{{--    <link rel="stylesheet" href="{{ asset('assets/lib/fontawesome-free/css/all.css') }}">--}}
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-{{--    <link rel="stylesheet" href="{{asset('assets/lib/fontawesome-free-6.0.0-beta3-web/css/fontawesome.css')}}">--}}
->>>>>>> de06e74b160c55caabdc0cccf34803dad11926ec
+    {{--    <link rel="stylesheet" href="{{asset('assets/lib/fontawesome-free-6.0.0-beta3-web/css/fontawesome.css')}}">--}}
     <link rel="stylesheet" href="{{ asset('assets/lib/daterangepicker-master/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/front/css/ckeditor-style.css') }}">
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
@@ -489,44 +483,10 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
     <div class="content-wrapper">
         @yield('content')
     </div>
     <!-- /.content-wrapper -->
-=======
-    <!-- ./wrapper -->
-
-    <script src="{{ asset('assets/admin/js/admin.js') }}"></script>
-    <script src="{{ asset('assets/lib/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/jquery.inputmask.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/daterangepicker/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/daterangepicker-master/daterangepicker.js') }}"></script>
-    <script src="{{ asset('assets/admin/ckeditor5/build/ckeditor.js') }}"></script>
-    <script src="{{ asset('assets/admin/ckfinder/ckfinder.js') }}"></script>
-    <script src="{{ asset('assets/lib/jquery-validation/jquery.validate.js') }}"></script>
-    <script src="{{ asset('assets/lib/jquery-validation/jquery.form.js') }}"></script>
-    <script src="{{ asset('assets/lib/jquery-validation/jquery-validation-bootstrap-tooltip.js') }}"></script>
-    {{-- ckeditor --}}
-{{--    @foreach ($urls as $url)--}}
-{{--        @if (request()->is("*/{$url}/edit", "parcipants_events/create"))--}}
-        <script>
-            // ru
-            ClassicEditor
-                .create(document.querySelector('#desc'), {
-                    ckfinder: {
-                        uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
-                    },
-                    image: {
-                        // You need to configure the image toolbar, too, so it uses the new style buttons.
-                        toolbar: ['imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full',
-                            'imageStyle:alignRight', '|', 'resizeImage',
-                        ],
-
-                        styles: [
-                            // Эта опция равна ситуации, когда стиль не применяется.
-                            'full',
->>>>>>> de06e74b160c55caabdc0cccf34803dad11926ec
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -547,6 +507,8 @@
 <script src="{{ asset('assets/lib/jquery-validation/jquery.form.js') }}"></script>
 <script src="{{ asset('assets/lib/jquery-validation/jquery-validation-bootstrap-tooltip.js') }}"></script>
 {{-- ckeditor --}}
+{{--    @foreach ($urls as $url)--}}
+{{--        @if (request()->is("*/{$url}/edit", "parcipants_events/create"))--}}
 <script>
     // ru
     ClassicEditor
@@ -559,18 +521,14 @@
                 toolbar: ['imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full',
                     'imageStyle:alignRight', '|', 'resizeImage',
                 ],
-
                 styles: [
                     // Эта опция равна ситуации, когда стиль не применяется.
                     'full',
-
                     // This represents an image aligned to the left.
                     'alignLeft',
-
                     // This represents an image aligned to the right.
                     'alignRight'
                 ]
-
             },
             toolbar: {
                 items: [
@@ -606,7 +564,6 @@
     // .catch(function(error) {
     //     console.error(error);
     // });
-
     // en
     ClassicEditor
         .create(document.querySelector('#desc_en'), {
@@ -618,15 +575,11 @@
                 toolbar: ['imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full',
                     'imageStyle:alignRight', '|', 'resizeImage',
                 ],
-
                 styles: [
                     // This option is equal to a situation where no style is applied.
                     'full',
-
                     // This represents an image aligned to the left.
                     'alignLeft',
-
-<<<<<<< HEAD
                     // This represents an image aligned to the right.
                     'alignRight'
                 ]
@@ -676,50 +629,54 @@
                 toolbar: ['imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full',
                     'imageStyle:alignRight', '|', 'resizeImage',
                 ],
-=======
-                            // This represents an image aligned to the right.
-                            'alignRight'
-                        ]
-                    },
-                    toolbar: {
-                        items: [
-                            'heading',
-                            '|',
-                            'bold',
-                            'italic',
-                            'link',
-                            'bulletedList',
-                            'numberedList',
-                            '|',
-                            'indent',
-                            'outdent',
-                            'alignment',
-                            '|',
-                            'blockQuote',
-                            'insertTable',
-                            'undo',
-                            'redo',
-                            'CKFinder',
-                            'mediaEmbed'
-                        ]
-                    },
-                    language: 'ru',
-                    table: {
-                        contentToolbar: [
-                            'tableColumn',
-                            'tableRow',
-                            'mergeTableCells'
-                        ]
-                    },
-                })
-            // .catch(function(error) {
-            //     console.error(error);
-            // });
-        </script>
+                styles: [
+                    // This option is equal to a situation where no style is applied.
+                    'full',
+                    // This represents an image aligned to the left.
+                    'alignLeft',
+                    // This represents an image aligned to the right.
+                    'alignRight'
+                ]
+            },
+            toolbar: {
+                items: [
+                    'heading',
+                    '|',
+                    'bold',
+                    'italic',
+                    'link',
+                    'bulletedList',
+                    'numberedList',
+                    '|',
+                    'indent',
+                    'outdent',
+                    'alignment',
+                    '|',
+                    'blockQuote',
+                    'insertTable',
+                    'undo',
+                    'redo',
+                    'CKFinder',
+                    'mediaEmbed'
+                ]
+            },
+            language: 'ru',
+            table: {
+                contentToolbar: [
+                    'tableColumn',
+                    'tableRow',
+                    'mergeTableCells'
+                ]
+            },
+        })
+    // .catch(function(error) {
+    //     console.error(error);
+    // });
+</script>
 {{--        @break(request()->is("parcipants_events/create"))--}}
 {{--        @endif--}}
 {{--    @endforeach--}}
-    @if (request()->is('*/conferences/create'))
+{{--@if (request()->is('*/conferences/create'))--}}
     <script>
         // ru
         ClassicEditor
@@ -732,234 +689,163 @@
                     toolbar: ['imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full',
                         'imageStyle:alignRight', '|', 'resizeImage',
                     ],
->>>>>>> de06e74b160c55caabdc0cccf34803dad11926ec
-
-                styles: [
-                    // This option is equal to a situation where no style is applied.
-                    'full',
-
-                    // This represents an image aligned to the left.
-                    'alignLeft',
-
-                    // This represents an image aligned to the right.
-                    'alignRight'
-                ]
-            },
-            toolbar: {
-                items: [
-                    'heading',
-                    '|',
-                    'bold',
-                    'italic',
-                    'link',
-                    'bulletedList',
-                    'numberedList',
-                    '|',
-                    'indent',
-                    'outdent',
-                    'alignment',
-                    '|',
-                    'blockQuote',
-                    'insertTable',
-                    'undo',
-                    'redo',
-                    'CKFinder',
-                    'mediaEmbed'
-                ]
-            },
-            language: 'ru',
-            table: {
-                contentToolbar: [
-                    'tableColumn',
-                    'tableRow',
-                    'mergeTableCells'
-                ]
-            },
-        })
-    // .catch(function(error) {
-    //     console.error(error);
-    // });
-</script>
-<script>
-    // ru
-    ClassicEditor
-        .create(document.querySelector('#content'), {
-            ckfinder: {
-                uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
-            },
-            image: {
-                // You need to configure the image toolbar, too, so it uses the new style buttons.
-                toolbar: ['imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full',
-                    'imageStyle:alignRight', '|', 'resizeImage',
-                ],
-
-                styles: [
-                    // Эта опция равна ситуации, когда стиль не применяется.
-                    'full',
-
-                    // This represents an image aligned to the left.
-                    'alignLeft',
-
-                    // This represents an image aligned to the right.
-                    'alignRight'
-                ]
-
-            },
-            toolbar: {
-                items: [
-                    'heading',
-                    '|',
-                    'bold',
-                    'italic',
-                    'link',
-                    'bulletedList',
-                    'numberedList',
-                    '|',
-                    'indent',
-                    'outdent',
-                    'alignment',
-                    '|',
-                    'blockQuote',
-                    'insertTable',
-                    'undo',
-                    'redo',
-                    'CKFinder',
-                    'mediaEmbed',
-                ]
-            },
-            language: 'ru',
-            table: {
-                contentToolbar: [
-                    'tableColumn',
-                    'tableRow',
-                    'mergeTableCells'
-                ]
-            },
-        })
-    // .catch(function(error) {
-    //     console.error(error);
-    // });
-
-    // en
-    ClassicEditor
-        .create(document.querySelector('#content_en'), {
-            ckfinder: {
-                uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
-            },
-            image: {
-                // You need to configure the image toolbar, too, so it uses the new style buttons.
-                toolbar: ['imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full',
-                    'imageStyle:alignRight', '|', 'resizeImage',
-                ],
-
-                styles: [
-                    // This option is equal to a situation where no style is applied.
-                    'full',
-
-                    // This represents an image aligned to the left.
-                    'alignLeft',
-
-                    // This represents an image aligned to the right.
-                    'alignRight'
-                ]
-            },
-            toolbar: {
-                items: [
-                    'heading',
-                    '|',
-                    'bold',
-                    'italic',
-                    'link',
-                    'bulletedList',
-                    'numberedList',
-                    '|',
-                    'indent',
-                    'outdent',
-                    'alignment',
-                    '|',
-                    'blockQuote',
-                    'insertTable',
-                    'undo',
-                    'redo',
-                    'CKFinder',
-                    'mediaEmbed'
-                ]
-            },
-            language: 'ru',
-            table: {
-                contentToolbar: [
-                    'tableColumn',
-                    'tableRow',
-                    'mergeTableCells'
-                ]
-            },
-        })
-    // .catch(function(error) {
-    //     console.error(error);
-    // });
-    // tk
-    ClassicEditor
-        .create(document.querySelector('#content_tk'), {
-            ckfinder: {
-                uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
-            },
-            image: {
-                // You need to configure the image toolbar, too, so it uses the new style buttons.
-                toolbar: ['imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full',
-                    'imageStyle:alignRight', '|', 'resizeImage',
-                ],
-
-                styles: [
-                    // This option is equal to a situation where no style is applied.
-                    'full',
-
-                    // This represents an image aligned to the left.
-                    'alignLeft',
-
-                    // This represents an image aligned to the right.
-                    'alignRight'
-                ]
-            },
-            toolbar: {
-                items: [
-                    'heading',
-                    '|',
-                    'bold',
-                    'italic',
-                    'link',
-                    'bulletedList',
-                    'numberedList',
-                    '|',
-                    'indent',
-                    'outdent',
-                    'alignment',
-                    '|',
-                    'blockQuote',
-                    'insertTable',
-                    'undo',
-                    'redo',
-                    'CKFinder',
-                    'mediaEmbed'
-                ]
-            },
-            language: 'ru',
-            table: {
-                contentToolbar: [
-                    'tableColumn',
-                    'tableRow',
-                    'mergeTableCells'
-                ]
-            },
-        })
-    // .catch(function(error) {
-    //     console.error(error);
-    // });
-</script>
+                    styles: [
+                        // Эта опция равна ситуации, когда стиль не применяется.
+                        'full',
+                        // This represents an image aligned to the left.
+                        'alignLeft',
+                        // This represents an image aligned to the right.
+                        'alignRight'
+                    ]
+                },
+                toolbar: {
+                    items: [
+                        'heading',
+                        '|',
+                        'bold',
+                        'italic',
+                        'link',
+                        'bulletedList',
+                        'numberedList',
+                        '|',
+                        'indent',
+                        'outdent',
+                        'alignment',
+                        '|',
+                        'blockQuote',
+                        'insertTable',
+                        'undo',
+                        'redo',
+                        'CKFinder',
+                        'mediaEmbed',
+                    ]
+                },
+                language: 'ru',
+                table: {
+                    contentToolbar: [
+                        'tableColumn',
+                        'tableRow',
+                        'mergeTableCells'
+                    ]
+                },
+            })
+        // .catch(function(error) {
+        //     console.error(error);
+        // });
+        // en
+        ClassicEditor
+            .create(document.querySelector('#content_en'), {
+                ckfinder: {
+                    uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+                },
+                image: {
+                    // You need to configure the image toolbar, too, so it uses the new style buttons.
+                    toolbar: ['imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full',
+                        'imageStyle:alignRight', '|', 'resizeImage',
+                    ],
+                    styles: [
+                        // This option is equal to a situation where no style is applied.
+                        'full',
+                        // This represents an image aligned to the left.
+                        'alignLeft',
+                        // This represents an image aligned to the right.
+                        'alignRight'
+                    ]
+                },
+                toolbar: {
+                    items: [
+                        'heading',
+                        '|',
+                        'bold',
+                        'italic',
+                        'link',
+                        'bulletedList',
+                        'numberedList',
+                        '|',
+                        'indent',
+                        'outdent',
+                        'alignment',
+                        '|',
+                        'blockQuote',
+                        'insertTable',
+                        'undo',
+                        'redo',
+                        'CKFinder',
+                        'mediaEmbed'
+                    ]
+                },
+                language: 'ru',
+                table: {
+                    contentToolbar: [
+                        'tableColumn',
+                        'tableRow',
+                        'mergeTableCells'
+                    ]
+                },
+            })
+        // .catch(function(error) {
+        //     console.error(error);
+        // });
+        // tk
+        ClassicEditor
+            .create(document.querySelector('#content_tk'), {
+                ckfinder: {
+                    uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+                },
+                image: {
+                    // You need to configure the image toolbar, too, so it uses the new style buttons.
+                    toolbar: ['imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full',
+                        'imageStyle:alignRight', '|', 'resizeImage',
+                    ],
+                    styles: [
+                        // This option is equal to a situation where no style is applied.
+                        'full',
+                        // This represents an image aligned to the left.
+                        'alignLeft',
+                        // This represents an image aligned to the right.
+                        'alignRight'
+                    ]
+                },
+                toolbar: {
+                    items: [
+                        'heading',
+                        '|',
+                        'bold',
+                        'italic',
+                        'link',
+                        'bulletedList',
+                        'numberedList',
+                        '|',
+                        'indent',
+                        'outdent',
+                        'alignment',
+                        '|',
+                        'blockQuote',
+                        'insertTable',
+                        'undo',
+                        'redo',
+                        'CKFinder',
+                        'mediaEmbed'
+                    ]
+                },
+                language: 'ru',
+                table: {
+                    contentToolbar: [
+                        'tableColumn',
+                        'tableRow',
+                        'mergeTableCells'
+                    ]
+                },
+            })
+        // .catch(function(error) {
+        //     console.error(error);
+        // });
+    </script>
+{{--@endif--}}
 
 {{-- daterangepicker --}}
 <script type="text/javascript">
-    $(function () {
-
+    $(function() {
         $('input[id="date"]').daterangepicker({
             autoUpdateInput: false,
             // locale: {
@@ -999,13 +885,11 @@
                 firstDay: 1
             }
         });
-
-        $('input[id="date"]').on('apply.daterangepicker', function (ev, picker) {
+        $('input[id="date"]').on('apply.daterangepicker', function(ev, picker) {
             $(this).val(picker.startDate.format('DD.MM.YYYY') + ' - ' + picker.endDate.format(
                 'DD.MM.YYYY'));
         });
-
-        $('input[id="date"]').on('cancel.daterangepicker', function (ev, picker) {
+        $('input[id="date"]').on('cancel.daterangepicker', function(ev, picker) {
             $(this).val('');
         });
     });
@@ -1019,7 +903,7 @@
 
 {{-- collaps navbar --}}
 <script>
-    $('.nav-sidebar a').each(function () {
+    $('.nav-sidebar a').each(function() {
         let location = window.location.protocol + '//' + window.location.host + window.location.pathname;
         let link = this.href;
         if (link == location) {
@@ -1027,20 +911,19 @@
             $(this).closest('.has-treeview').addClass('menu-open');
         }
     });
-
-    $(document).ready(function () {
+    $(document).ready(function() {
         bsCustomFileInput.init();
     });
 </script>
 
 {{-- js view image --}}
 <script>
-    $('#thumbnail').change(function () {
+    $('#thumbnail').change(function() {
         var input = $(this)[0];
         if (input.files && input.files[0]) {
             if (input.files[0].type.match('image.*')) {
                 var reader = new FileReader();
-                reader.onload = function (e) {
+                reader.onload = function(e) {
                     $('#img-preview').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(input.files[0]);
@@ -1051,24 +934,22 @@
             console.log('хьюстон у нас проблема');
         }
     });
-
-    $('#reset-img-preview').click(function () {
+    $('#reset-img-preview').click(function() {
         $('#thumbnail').val('');
         $('#img-preview').attr('src', '');
     });
-
-    $('#form').bind('reset', function () {
+    $('#form').bind('reset', function() {
         $('#img-preview').attr('src', 'default-preview.jpg');
     });
 </script>
 {{-- en --}}
 <script>
-    $('#thumbnail_en').change(function () {
+    $('#thumbnail_en').change(function() {
         var input = $(this)[0];
         if (input.files && input.files[0]) {
             if (input.files[0].type.match('image.*')) {
                 var reader = new FileReader();
-                reader.onload = function (e) {
+                reader.onload = function(e) {
                     $('#img-preview_en').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(input.files[0]);
@@ -1079,24 +960,22 @@
             console.log('хьюстон у нас проблема');
         }
     });
-
-    $('#reset-img-preview').click(function () {
+    $('#reset-img-preview').click(function() {
         $('#thumbnail_en').val('');
         $('#img-preview').attr('src', '');
     });
-
-    $('#form').bind('reset', function () {
+    $('#form').bind('reset', function() {
         $('#img-preview').attr('src', 'default-preview.jpg');
     });
 </script>
 {{-- tk --}}
 <script>
-    $('#thumbnail_tk').change(function () {
+    $('#thumbnail_tk').change(function() {
         var input = $(this)[0];
         if (input.files && input.files[0]) {
             if (input.files[0].type.match('image.*')) {
                 var reader = new FileReader();
-                reader.onload = function (e) {
+                reader.onload = function(e) {
                     $('#img-preview_tk').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(input.files[0]);
@@ -1107,13 +986,11 @@
             console.log('хьюстон у нас проблема');
         }
     });
-
-    $('#reset-img-preview').click(function () {
+    $('#reset-img-preview').click(function() {
         $('#thumbnail_tk').val('');
         $('#img-preview').attr('src', '');
     });
-
-    $('#form').bind('reset', function () {
+    $('#form').bind('reset', function() {
         $('#img-preview').attr('src', 'default-preview.jpg');
     });
 </script>
@@ -1129,8 +1006,8 @@
             }
             var reader = new FileReader();
             // Closure to capture the file information.
-            reader.onload = (function (theFile) {
-                return function (e) {
+            reader.onload = (function(theFile) {
+                return function(e) {
                     // Render thumbnail.
                     var span = document.createElement('span');
                     span.innerHTML = ['<img class="img-thumbnail" width="200" title="', escape(theFile
@@ -1144,7 +1021,6 @@
             reader.readAsDataURL(f);
         }
     }
-
     if (window.File && window.FileReader && window.FileList && window.Blob) {
         document.getElementById('fileMulti').addEventListener('change', handleFileSelect, false);
     } else {
@@ -1156,7 +1032,6 @@
     function resetForm() {
         document.getElementById("my-form").reset();
     }
-
     // $.ajaxSetup({
     //     headers: {
     //         'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
@@ -1223,7 +1098,7 @@
 
 {{-- Password view --}}
 <script>
-    $('body').on('click', '.password-checkbox', function () {
+    $('body').on('click', '.password-checkbox', function() {
         if ($(this).is(':checked')) {
             $('#current_password').attr('type', 'text');
             $('#password1').attr('type', 'text');
