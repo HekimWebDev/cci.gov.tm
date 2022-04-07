@@ -20,7 +20,7 @@ trait Translatable
         }
 
         $attributes = array_keys($this->attributes);
-        if (!in_array($fieldName, $attributes)) {
+        if (!in_array($fieldName, $attributes, true)) {
             throw new \LogicException("No such attribute for model ", get_class($this));
         }
 
@@ -30,10 +30,12 @@ trait Translatable
         //     return $this->$orignFieldName;
         // }
 
-        if ($local === 'en' && is_null($this->$fieldName) || empty($this->$fieldName)) {
+        if (($local === 'en' && is_null($this->$fieldName)) || empty($this->$fieldName)) {
             // return redirect()->back();
             return null;
-        } elseif ($local === 'tk' && is_null($this->$fieldName) || empty($this->$fieldName)) {
+        }
+
+        if (($local === 'tk' && is_null($this->$fieldName)) || empty($this->$fieldName)) {
             return null;
         }
 

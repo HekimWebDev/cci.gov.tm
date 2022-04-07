@@ -4,7 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="yandex-verification" content="3293d0c0b9b4b984" />
+    <meta name="google-site-verification" content="e9gmroTEEMFbjLN6lvx3dubQnATGPza6Fx4kRIW2xZc" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="alternate" hreflang="en" href="{{ route('home') }}/locale/en">
+    <link rel="alternate" hreflang="tkm" href="{{ route('home') }}/locale/tk">
+
     <link rel="stylesheet" href="{{ asset('assets/front/css/style1.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/lib/bootstrap-4.6/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/lib/fontawesome-free/css/all.min.css') }}">

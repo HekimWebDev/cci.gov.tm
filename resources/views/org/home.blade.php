@@ -74,9 +74,8 @@
                 <div class="carousel-inner m-auto">
                     @foreach ($banner as $k => $v)
                         <div class="carousel-item @if ($k==0) active @endif">
-			<a href="http://virtualexpo.gov.tm" target="_blank" >                            
-			<img class="d-block " height="330" width="100%" src="{{ asset('uploads') . '/' . $v->__('thumbnail') }}">
-			</a>
+                            <img class="d-block " height="330" width="100%"
+                                 src="{{ asset('uploads') . '/' . $v->__('thumbnail') }}">
                         </div>
                     @endforeach
                 </div>
@@ -90,23 +89,25 @@
     <div class="content">
         <div class="rolls m-auto">
             <div class="news-main ">
-                <a href="{{ route('fo-exhibition') }}" >
+                <a href="{{ route('fo-exhibition') }}">
                     <h1>@lang('home/home.gallery')</h1>
                 </a>
             </div><!-- /.container -->
-        </div><br>
+        </div>
+        <br>
         <div class="site-section bg-left-half mb-5">
             <div class="container-fluid owl-2-style">
                 <div class="owl-carousel owl-2" style="max-width: 1583px; margin-left: auto; margin-right: auto;">
                     @foreach ($galleries as $gallery)
                         <div class="media-29101">
-                            <a href="{{ route('album_single', ['slug' => $gallery->slug]) }}" @if ($gallery->album == null) style="pointer-events: none;" @endif>
+                            <a href="{{ route('album_single', ['slug' => $gallery->slug]) }}"
+                               @if ($gallery->album == null) style="pointer-events: none;" @endif>
                                 <div class="img d-flex align-items-end justify-content-center" style="
-                                            background-image:url({{ $gallery->getImage() }});
-                                            height: 250px;
-                                            background-position: center;
-                                            background-repeat: no-repeat;
-                                            background-size: cover;">
+                                        background-image:url({{ $gallery->getImage() }});
+                                        height: 250px;
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: cover;">
                                     <div class="w-100 h-30 text-center" style="
                                                 background:rgba(0, 0, 0, 0) linear-gradient(to bottom,
                                                 rgba(0, 0, 0, 0) 0px,

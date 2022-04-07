@@ -1059,7 +1059,7 @@
             },
             password_confirmation: {
                 required: true,
-                equalTo: "#password",
+                equalTo: "#password1",
             },
         },
         messages: {

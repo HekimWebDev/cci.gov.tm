@@ -16,7 +16,7 @@ use Illuminate\Support\Str;
 class MainController extends Controller
 {
     public function index(){
-        $news = News::query()->orderBy('id', 'desc')->get()->take('3');
+        $news = News::query()->orderBy('updated_at', 'desc')->get()->take('3');
         $galleries = Gallery::all();
         $partners = Partner::query()->select('thumbnail')->get();
         $banner = Banner::all();
