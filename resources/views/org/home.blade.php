@@ -51,12 +51,34 @@
             </div><!-- /.container -->
         </div>
     </section>
+
+    {{--NewsCci--}}
     <section class="news m-auto">
         <div class="news-main">
             <h1>@lang('home/home.news2')</h1>
             <a href="{{ route('news_cci') }}">
                 <p>@lang('home/home.news_small')</p>
             </a>
+        </div>
+    </section>
+    <section class="main-photo" style="background-color: #f5f6fb;padding: 25px 0;">
+        <div class="m-photo">
+            <div class="container ">
+                <div class="row">
+                    @foreach ($newsCci as $cci)
+                        @continue(($cci->__('title') && $cci->__('desc')) == false)
+                        <div class="col-md-4 col-xl-4 col-lg-4 m1-photo text-center">
+                            <div class="scale">
+                                <a href="{{ route('news_cci_single', $cci->slug) }}">
+                                    <div><img src="{{ $cci->getImage() }}" class="scale img-fluid" alt=""></div>
+                                    <p style="padding: 0" class="pt-2">{{ Str::words($cci->__('title'), 6, '...') }}</p>
+                                    <span>{{ $cci->updated_at }}</span>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div><!-- /.row -->
+            </div><!-- /.container -->
         </div>
     </section>
 
@@ -89,9 +111,7 @@
     <div class="content">
         <div class="rolls m-auto">
             <div class="news-main ">
-                <a href="{{ route('fo-exhibition') }}">
-                    <h1>@lang('home/home.gallery')</h1>
-                </a>
+                <h1>@lang('home/home.gallery')</h1>
             </div><!-- /.container -->
         </div>
         <br>

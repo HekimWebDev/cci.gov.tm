@@ -73,6 +73,15 @@
                                 </div>
                                 <img class="img-thumbnail m-1" id="img-preview" width="300" src="" /><br>
 
+                                <div class="form-group">
+                                    <label for="files">Файл</label>
+                                    <div class="custom-file">
+                                        <input type="file" name="files" id="files" class="custom-file-input">
+                                        <label class="custom-file-label @error('files') is-invalid @enderror"
+                                               for="files">Выберите изображение</label>
+                                    </div>
+                                </div>
+
                             </div>
                             <!-- /.card-body -->
 

@@ -21,6 +21,9 @@
                             <div class="col-lg-5 col-sm-7  s2">
                                 <a href="#" style="cursor: auto;">
                                     <h3>{{ $x->__('title') }}</h3>
+                                    @if($x->__('files'))
+                                        <a href="{{ asset("uploads/".$x->__('files')) }}">Нажмите чтобы скачать файл</a>
+                                    @endif
                                 </a>
                             </div><!-- /.col-lg-6 -->
                             <div class="col-lg-3 offset-lg-2 col-sm-3 s3">
