@@ -95,8 +95,9 @@ class NewsController extends Controller
         if ($file = News::uploadImage($request, $news->thumbnail)) {
             $data['thumbnail'] = $file;
         }
-        $date = date_create($data['updated_at']);
-        $data['updated_at'] = date_format($date, "Y.m.d");
+
+//        $date = date_create($data['updated_at']);
+//        $data['updated_at'] = date_format($date['date'], "Y.m.d");
         $data['date'] = $data['updated_at'];
         $news->update($data);
         return redirect()->route('news.index')->with('success', 'Новость успещна изменена');

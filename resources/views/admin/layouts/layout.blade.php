@@ -8,9 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/admin/css/admin.css') }}">
-    {{--    <link rel="stylesheet" href="{{ asset('assets/lib/fontawesome-free/css/all.css') }}">--}}
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    {{--    <link rel="stylesheet" href="{{asset('assets/lib/fontawesome-free-6.0.0-beta3-web/css/fontawesome.css')}}">--}}
+        <link rel="stylesheet" href="{{ asset('assets/lib/fontawesome-free/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/lib/daterangepicker-master/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/front/css/ckeditor-style.css') }}">
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">

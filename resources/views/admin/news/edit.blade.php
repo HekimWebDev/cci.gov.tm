@@ -68,7 +68,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                         <input type="text" name="updated_at" value="{{ $news->date }}" data-mask class="form-control @error('updated_at') is-invalid @enderror"
-                                               data-inputmask-alias="datetime" data-inputmask-inputformat="dd.mm.yyyy">
+                                               data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy.mm.dd">
                                     </div>
                                 </div>
 
