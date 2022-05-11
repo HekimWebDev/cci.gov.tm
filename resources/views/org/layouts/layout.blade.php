@@ -71,7 +71,7 @@
                 <div class="row">
                     <div class="col-md-4 col-lg-4 top-1">
                         <p>@lang('home/home.header.navbar_contact'):
-                            <djfh href="tel:+{{ $info[0]->phone }}">{{ $info[0]->phone }}</>
+                            <a href="tel:+{{ $info[0]->phone }}">{{ $info[0]->phone }}</a>
                         </p>
                     </div><!-- /.col-lg-3 -->
                     <div class="col-md-7 col-lg-7 ml-auto top-2 ">
@@ -133,7 +133,8 @@
                                 @endforeach
                             </div>
                         </li>
-                        {{-- business info --}}
+
+                        {{-- Business info --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -147,8 +148,11 @@
                                     href="{{ route('tm-offers') }}">@lang('home/home.header.navbar_li_a_tm-offers')</a>
                                 <a class="dropdown-item"
                                     href="{{ route('fo-offers') }}">@lang('home/home.header.navbar_li_a_fo-offers')</a>
+                                <a class="dropdown-item"
+                                    href="{{ route('biz-info.local-brands') }}">Local Brands</a>
                             </div>
                         </li>
+
                         {{-- Investments --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"

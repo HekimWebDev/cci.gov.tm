@@ -17,18 +17,18 @@ use Illuminate\Support\Str;
 class MainController extends Controller
 {
     public function index(){
-        $news = News::query()->orderBy('updated_at', 'desc')->get()->take('3');
-        $newsCci = NewsCci::query()->orderBy('updated_at', 'desc')->get()->take('3');
-        $galleries = Gallery::all();
-        $partners = Partner::query()->select('thumbnail')->get();
-        $banner = Banner::all();
-        $carousels = Carousel::all();
+        $news = News::orderBy('updated_at', 'desc')->get()->take('3');
+        $newsCci = NewsCci::orderBy('updated_at', 'desc')->get()->take('3');
+        $galleries = Gallery::get();
+        $partners = Partner::select('thumbnail')->get();
+        $banner = Banner::get();
+        $carousels = Carousel::get();
         $title = __('main.controllers.main');
         return view('org.home', compact('news', 'newsCci', 'galleries', 'partners', 'banner', 'carousels', 'title'));
     }
 
     public function branch($slug){
-        $branch = Branch::query()->where('slug', $slug)->firstOrFail();
+        $branch = Branch::where('slug', $slug)->firstOrFail();
         $title = $branch->__('name').' | '.__('main.cci');
         return view('org.branch_single', compact('branch', 'title'));
     }
