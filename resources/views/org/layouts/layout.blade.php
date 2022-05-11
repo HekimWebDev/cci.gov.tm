@@ -141,13 +141,13 @@
                                 @lang('home/home.header.navbar_li_business_info')</a>
                             <div class="dropdown-menu header_dropdown_menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item"
-                                    href="{{ route('tenders') }}">@lang('home/home.header.navbar_li_a_tenders')</a>
+                                    href="{{ route('biz-info.tenders') }}">@lang('home/home.header.navbar_li_a_tenders')</a>
                                 <a class="dropdown-item"
-                                    href="{{ route('partners') }}">@lang('home/home.header.navbar_li_a_partners')</a>
+                                    href="{{ route('biz-info.partners') }}">@lang('home/home.header.navbar_li_a_partners')</a>
                                 <a class="dropdown-item"
-                                    href="{{ route('tm-offers') }}">@lang('home/home.header.navbar_li_a_tm-offers')</a>
+                                    href="{{ route('biz-info.tm-offers') }}">@lang('home/home.header.navbar_li_a_tm-offers')</a>
                                 <a class="dropdown-item"
-                                    href="{{ route('fo-offers') }}">@lang('home/home.header.navbar_li_a_fo-offers')</a>
+                                    href="{{ route('biz-info.fo-offers') }}">@lang('home/home.header.navbar_li_a_fo-offers')</a>
                                 <a class="dropdown-item"
                                     href="{{ route('biz-info.local-brands') }}">Local Brands</a>
                             </div>

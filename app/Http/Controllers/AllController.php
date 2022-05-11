@@ -21,30 +21,7 @@ class AllController extends Controller
         $title = __('main.controllers.contacts');
         return view('org.contacts', compact('title', 'adress', 'contacts'));
     }
-    public function tenders()
-    {
-        $title = __('main.controllers.tenders');
-        $tenders = Tender::paginate(5);
-        return view('org.tenders', compact('tenders', 'title'));
-    }
-    public function partners()
-    {
-        $title = __('main.controllers.partners');
-        $partners = Partner::paginate(10);
-        return view('org.partners', compact('partners', 'title'));
-    }
-    public function fo_offers()
-    {
-        $title = __('main.controllers.fo_offers');
-        $fo_offers = Fooffer::query()->orderBy('number')->paginate(10);
-        return view('org.fo-offers', compact('fo_offers', 'title'));
-    }
-    public function tm_offers()
-    {
-        $title = __('main.controllers.tm_offers');
-        $tm_offers = Tmoffer::paginate(5);
-        return view('org.tm-offers', compact('tm_offers', 'title'));
-    }
+
     public function tm_exhibition()
     {
         $title = __('main.controllers.tm_ex');
@@ -57,5 +34,5 @@ class AllController extends Controller
         $fo_ex = Foexhibition::paginate(10);
         return view('org.fo_exhibition', compact('fo_ex', 'title'));
     }
-    
+
 }

@@ -35,28 +35,29 @@
                                         <div class="form-group">
                                             <p class="p-0 m-0"><label for="email">Email:</label></p>
                                             <input name="email" type="email"
-                                                class="form-control @error('email') is-invalid @enderror" id="email"
-                                                placeholder="name@example.com" required>
+                                                   class="form-control @error('email') is-invalid @enderror" id="email"
+                                                   placeholder="name@example.com" required>
                                             @error('email')
-                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group">
                                             <p class="p-0 m-0"><label for="theme">Тема:</label></p>
                                             <input name="theme" type="text"
-                                                class="form-control @error('theme') is-invalid @enderror" id="theme"
-                                                required>
+                                                   class="form-control @error('theme') is-invalid @enderror" id="theme"
+                                                   required>
                                             @error('theme')
-                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group">
                                             <p class="p-0 m-0"><label for="message">Сообщение:</label></p>
                                             <textarea name="message"
-                                                class="form-control @error('message') is-invalid @enderror" id="message"
-                                                rows="4" required></textarea>
+                                                      class="form-control @error('message') is-invalid @enderror"
+                                                      id="message"
+                                                      rows="4" required></textarea>
                                             @error('message')
-                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <button type="submit" class="btn btn-success">@lang('inv/inv.button')</button>
@@ -68,6 +69,7 @@
                     </div><!-- /.row -->
                 </div><!-- /.container -->
             </div><!-- /.quest -->
+        </div><!-- /.quest -->
     </section><!-- /.question -->
 
 @endsection

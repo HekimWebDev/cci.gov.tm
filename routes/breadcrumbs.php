@@ -2,6 +2,7 @@
 
 use App\Models\About;
 use App\Models\Branch;
+use App\Models\Brands;
 use App\Models\Contact;
 use App\Models\Foexhibition;
 use App\Models\Fooffer;
@@ -130,6 +131,24 @@ Breadcrumbs::for('tenderEdit', function (BreadcrumbTrail $trail, Tender $tender)
 Breadcrumbs::for('tenderSingle', function (BreadcrumbTrail $trail, Tender $tender) {
     $trail->parent('tender');
     $trail->push($tender->title, route('tender.single', $tender));
+});
+// -------------------------------------------------End Tenders---------------------------------------------------
+//                                           =========================
+// -------------------------------------------------Brands--------------------------------------------------------------
+// Home > Brands
+Breadcrumbs::for('brand', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Местные бренды', route('local-brands.index'));
+});
+// Home > Brands-Create
+Breadcrumbs::for('brandCreate', function (BreadcrumbTrail $trail) {
+    $trail->parent('brand');
+    $trail->push('Создать бренд', route('local-brands.create'));
+});
+// Home > Brands-Edit
+Breadcrumbs::for('brandEdit', function (BreadcrumbTrail $trail, Brands $brand) {
+    $trail->parent('brand');
+    $trail->push($brand->title, route('local-brands.edit', $brand));
 });
 // -------------------------------------------------End Tenders---------------------------------------------------
 //                                           =========================
