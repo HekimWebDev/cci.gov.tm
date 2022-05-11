@@ -1,15 +1,5 @@
 @extends('org.layouts.layout')
-<style>
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-    }
 
-    .row > div[class*='col-'] {
-        display: flex;
-    }
-
-</style>
 @section('title', $title)
 
 @section('content')
@@ -22,7 +12,7 @@
 
     <section class="blocks " style="background: none!important;">
         <div class="container">
-            <div class="row text-center">
+            <div class="row-div text-center">
                 @foreach($brands as $brand)
                     <div class="col-3 mb-3">
                         <div class="card">

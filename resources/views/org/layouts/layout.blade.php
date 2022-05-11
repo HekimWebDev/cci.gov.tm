@@ -60,7 +60,14 @@
         .read-more__link{
             margin-bottom: 10px;
         }
+        .row-div {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
+        .row-div > div[class*='col-'] {
+            display: flex;
+        }
     </style>
 </head>
 
