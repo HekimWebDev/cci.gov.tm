@@ -68,6 +68,26 @@
                             </div>
                             <img class="img-thumbnail m-1" id="img-preview" width="300" src="" /><br>
 
+                            <div class="form-group">
+                                <label for="files">Файл (ru)</label>
+                                <div class="custom-file">
+                                    <input type="file" name="files" id="files" class="custom-file-input">
+                                    <label class="custom-file-label @error('files') is-invalid @enderror"
+                                           for="files">Выберите файл</label>
+                                </div>
+                                <label class="mt-3" for="files">Файл (tk)</label>
+                                <div class="custom-file">
+                                    <input type="file" name="files_tk" id="files_tk" class="custom-file-input">
+                                    <label class="custom-file-label @error('files_tk') is-invalid @enderror"
+                                           for="files_tk">Выберите файл</label>
+                                </div>
+                                <label class="mt-3" for="files_en">Файл (en)</label>
+                                <div class="custom-file">
+                                    <input type="file" name="files_en" id="files_en" class="custom-file-input">
+                                    <label class="custom-file-label @error('files_en') is-invalid @enderror"
+                                           for="files_en">Выберите файл</label>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.card-body -->
 
