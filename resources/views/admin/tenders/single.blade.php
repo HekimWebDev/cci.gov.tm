@@ -58,7 +58,7 @@
                                 <dt class="col-sm-4">Дата</dt>
                                 <dd class="col-sm-8">{{ $tender->datesingle }}</dd>
                             </dl>
-                            <a class="btn btn-primary" href="{{ route('tenders.edit', $tender->id) }}"
+                            <a class="btn btn-primary" href="{{ route('admin.biz-info.tenders.edit', $tender->id) }}"
                                 role="button">Редактировать</a>
                         </div>
                         <!-- /.card-body -->

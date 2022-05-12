@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\BizInfo;
 
 use App\Http\Controllers\Controller;
 use App\Models\Tmoffer;
@@ -52,7 +52,7 @@ class TmOffersController extends Controller
 
         Tmoffer::create($data);
 
-        return redirect()->route('tm_offers.index')->with('success', 'Новое предложение успешно сохранилось');
+        return redirect()->route('admin.biz-info.tm_offers.index')->with('success', 'Новое предложение успешно сохранилось');
     }
 
 
@@ -91,16 +91,16 @@ class TmOffersController extends Controller
 
         $tm_offer->update($data);
 
-        return redirect()->route('tm_offers.index')->with('success', 'Предложение успещно изменено');
+        return redirect()->route('admin.biz-info.tm_offers.index')->with('success', 'Предложение успещно изменено');
     }
 
 
-    public function destroy(Tmoffer $tm_offer)
+    public function destroy(Tmoffer $tm_offer): RedirectResponse
     {
         Storage::delete($tm_offer->thumbnail);
 
         $tm_offer->delete();
 
-        return redirect()->route('tm_offers.index')->with('success', 'Предложение успещно удалено');
+        return redirect()->route('admin.biz-info.tm_offers.index')->with('success', 'Предложение успещно удалено');
     }
 }

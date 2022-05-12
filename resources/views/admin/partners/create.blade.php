@@ -19,7 +19,7 @@
                         </div>
                         <!-- /.card-header -->
 
-                        <form role="form" method="post" action="{{ route('partners.store') }}"
+                        <form role="form" method="post" action="{{ route('admin.biz-info.partners.store') }}"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">

@@ -177,4 +177,32 @@
             @endforeach
         </div>
     </section>
+
+    {{-- reklamny banner --}}
+    <section class="main-photo">
+        <div class="m-photo">
+            <div class="container ">
+                <div class="row"></div><!-- /.row -->
+            </div><!-- /.container -->
+        </div>
+    </section><!-- /.blocks -->
+    <div class="banner m-auto text-center">
+        <div class="wrapper m-auto">
+            <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+                <div class="carousel-inner m-auto">
+                    <div class="carousel-item active">
+                        <img class="d-block " height="330" width="100%"
+                             src=" @if(app()->getLocale() === 'ru' || app()->getLocale() === null)
+                             {{ asset('uploads') . '/images/2022-05-09/banner_ru/nlHYB968YutluMhFfimLrJhuH9H9QmEVhqbIa4P3.jpg' }}
+                             @elseif(app()->getLocale() === 'en')
+                             {{ asset('uploads') . '/images/2022-05-09/banner_en/hcv9WKWsbRd2GiKuvHGQVCvWvmiH91SbCBwxcH9u.jpg' }}
+                             @else
+                             {{ asset('uploads') . '/images/2022-05-09/banner_tk/wQ0xAzxw2gtMO7GXjsUXpSNFNH2CQppWPmdqlsjQ.jpg' }}
+                             @endif"
+                        >
+                    </div>
+                </div>
+            </div><!-- /.container -->
+        </div>
+    </div><!-- /.banner -->
 @endsection

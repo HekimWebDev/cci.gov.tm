@@ -1,47 +1,37 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\BizInfo;
 
 use App\Http\Controllers\Controller;
 use App\Models\Partner;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class PartnersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $partners = Partner::query()->orderBy('id', 'desc')->paginate(10);
+        $partners = Partner::orderByDesc('id')->paginate(10);
+
         return view('admin.partners.index', compact('partners'));
     }
 
-    public function single($id){
+
+    public function show($id){
         $partner = partner::find($id);
+
         return view('admin.partners.single', compact('partner'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Contracts\View\Factory \Illuminate\View\View
-     */
+
     public function create()
     {
         return view('admin.partners.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(Request $request): RedirectResponse
     {
         $request->validate([
             'name' => 'required|string|min:3|max:255',
@@ -61,31 +51,24 @@ class PartnersController extends Controller
         ]);
 
         $data = $request->all();
+
         $data['thumbnail'] = Partner::uploadImage($request);
+
         Partner::create($data);
-        return redirect()->route('partners.index')->with('success', 'Новый партнер успешно сохранился');
+
+        return redirect()->route('admin.biz-info.partners.index')->with('success', 'Новый партнер успешно сохранился');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $partner = partner::find($id);
+
         return view('admin.partners.edit', compact('partner'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update(Request $request, $id): RedirectResponse
     {
         $request->validate([
             'name' => 'required|string|min:3|max:255',
@@ -103,6 +86,7 @@ class PartnersController extends Controller
             'adress_tk' => 'nullable|string|min:5|max:255',
             'thumbnail' => 'nullable|image',
         ]);
+
         $partner = Partner::find($id);
 
         $data = $request->all();
@@ -112,20 +96,19 @@ class PartnersController extends Controller
         }
 
         $partner->update($data);
-        return redirect()->route('partners.index')->with('success', 'Партнёр успешно изменён');
+
+        return redirect()->route('admin.biz-info.partners.index')->with('success', 'Партнёр успешно изменён');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+    public function destroy($id): RedirectResponse
     {
         $partner = Partner::find($id);
+
         Storage::delete($partner->thumbnail);
+
         $partner->delete($id);
-        return redirect()->route('partners.index')->with('success', 'Партнёр успешно удалён');
+
+        return redirect()->route('admin.biz-info.partners.index')->with('success', 'Партнёр успешно удалён');
     }
 }

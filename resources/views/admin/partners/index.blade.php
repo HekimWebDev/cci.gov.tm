@@ -18,7 +18,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a href="{{ route('partners.create') }}" class="btn btn-primary mb-3">Добавить
+                            <a href="{{ route('admin.biz-info.partners.create') }}" class="btn btn-primary mb-3">Добавить
                                 партнера</a>
                             @if (count($partners))
                                 <div class="table-responsive">
@@ -28,32 +28,27 @@
                                                 <th>Action </th>
                                                 <th>Имя</th>
                                                 <th>Заголовок</th>
-                                                {{-- <th>Slugguble</th> --}}
-                                                {{-- <th>Описания</th> --}}
                                                 <th>Телефон</th>
-                                                {{-- <th>Факс</th> --}}
-                                                {{-- <th>Адрес</th> --}}
                                                 <th>Электронное почта</th>
-                                                {{-- <th>Веб-сайт</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($partners as $partner)
                                                 <tr>
                                                     <td>
-                                                        <a href="{{ route('partner.single', $partner->id) }}"
+                                                        <a href="{{ route('admin.biz-info.partners.show', $partner->id) }}"
                                                             class="btn btn-success btn-sm float-left mb-1 mr-1"
                                                             title="Осмотр">
                                                             <i class="fas fa-eye"></i>
                                                         </a>
 
-                                                        <a href="{{ route('partners.edit', ['partner' => $partner->id]) }}"
+                                                        <a href="{{ route('admin.biz-info.partners.edit', ['partner' => $partner->id]) }}"
                                                             class="btn btn-info btn-sm float-left mb-1 mr-1">
                                                             <i class="fas fa-pencil-alt"></i>
                                                         </a>
 
                                                         <form
-                                                            action="{{ route('partners.destroy', ['partner' => $partner->id]) }}"
+                                                            action="{{ route('admin.biz-info.partners.destroy', ['partner' => $partner->id]) }}"
                                                             method="post" class="float-left">
                                                             @csrf
                                                             @method('DELETE')
@@ -65,13 +60,8 @@
                                                     </td>
                                                     <td>{{ $partner->name }}</td>
                                                     <td>{{ $partner->title }}</td>
-                                                    {{-- <td>{{ $partner->slug }}</td> --}}
-                                                    {{-- <td>{{ $partner->desc }}</td> --}}
                                                     <td>{{ $partner->phone }}</td>
-                                                    {{-- <td>{{ $partner->faks }}</td> --}}
-                                                    {{-- <td>{{ $partner->adress }}</td> --}}
                                                     <td>{{ $partner->email }}</td>
-                                                    {{-- <td>{{ $partner->web }}</td> --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>

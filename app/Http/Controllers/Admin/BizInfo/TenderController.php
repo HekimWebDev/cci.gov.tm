@@ -1,48 +1,37 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
-
+namespace App\Http\Controllers\Admin\BizInfo;
 
 use App\Http\Controllers\Controller;
 use App\Models\Tender;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-
 
 class TenderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $tenders = Tender::paginate(10);
+        $tenders = Tender::orderByDesc('id')->paginate(10);
+
         return view('admin.tenders.index', compact('tenders'));
     }
 
-    public function single($id){
+
+    public function show($id){
         $tender = Tender::find($id);
+
         return view('admin.tenders.single', compact('tender'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Contracts\View\Factory \Illuminate\View\View
-     */
+
     public function create()
     {
         return view('admin.tenders.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(Request $request): RedirectResponse
     {
         $request->validate([
             'title' => 'required|string|min:3|max:255',
@@ -63,30 +52,22 @@ class TenderController extends Controller
             'organizer_tk' => 'nullable|string|min:5|max:255',
             'datesingle' => 'nullable|date',
         ]);
+
         Tender::create($request->all());
-        return redirect()->route('tenders.index')->with('success', 'Новый тендер успешно сохранился');
+
+        return redirect()->route('admin.biz-info.tenders.index')->with('success', 'Новый тендер успешно сохранился');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $tender = Tender::find($id);
+
         return view('admin.tenders.edit', compact('tender'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update(Request $request, $id): RedirectResponse
     {
         $request->validate([
             'title' => 'required|min:3|max:255|string',
@@ -107,21 +88,21 @@ class TenderController extends Controller
             'organizer_tk' => 'nullable|string|min:5|max:255',
             'datesingle' => 'nullable|date',
         ]);
-        $Tender = Tender::find($id);
-        $Tender->update($request->all());
-        return redirect()->route('tenders.index')->with('success', 'Тендер успешно изменён');
+
+        $tender = Tender::find($id);
+
+        $tender->update($request->all());
+
+        return redirect()->route('admin.biz-info.tenders.index')->with('success', 'Тендер успешно изменён');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+    public function destroy($id): RedirectResponse
     {
         $tender = Tender::find($id);
+
         $tender->delete($id);
-        return redirect()->route('tenders.index')->with('success', 'Тендер успешно удалён');
+
+        return redirect()->back()->with('success', 'Тендер успешно удалён');
     }
 }

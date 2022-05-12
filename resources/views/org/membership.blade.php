@@ -14,12 +14,12 @@
                 <div class="row">
                     <h3 class="ml-4">
                         {{ $membership->__('title') }}
-                        @if ($membership->title == 'КАК ВСТУПИТЬ В СОТРУДНИЧЕСТВО С ТПП ТУРКМЕНИСТАНА?')
-                            @if (app()->getLocale() == 'ru' || app()->getLocale() == null)
+                        @if ($membership->title === 'КАК ВСТУПИТЬ В СОТРУДНИЧЕСТВО С ТПП ТУРКМЕНИСТАНА?')
+                            @if (app()->getLocale() === 'ru' || app()->getLocale() === null)
                                 <a href="{{ asset('assets/front/application/Anketa_rus.docx') }}">
                                     <img src="{{ asset('images/word.png') }}" width="30px">
                                 </a>
-                            @elseif(app()->getLocale() == 'en')
+                            @elseif(app()->getLocale() === 'en')
                                 <a href="{{ asset('assets/front/application/Anketa_eng.docx') }}">
                                     <img src="{{ asset('images/word.png') }}" width="30px">
                                 </a>
@@ -35,5 +35,6 @@
                     </div><!-- /.row -->
                 </div><!-- /.container -->
             </div><!-- /.quest -->
+        </div>
     </section>
 @endsection

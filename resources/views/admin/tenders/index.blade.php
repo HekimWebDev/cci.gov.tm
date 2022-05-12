@@ -18,7 +18,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a href="{{ route('tenders.create') }}" class="btn btn-primary mb-3">Добавить
+                            <a href="{{ route('admin.biz-info.tenders.create') }}" class="btn btn-primary mb-3">Добавить
                                 тендер</a>
                             @if (count($tenders))
                                 <div class="table-responsive">
@@ -37,17 +37,17 @@
                                         @foreach($tenders as $tender)
                                             <tr>
                                                 <td>
-                                                    <a href="{{ route('tender.single', $tender->id) }}"
+                                                    <a href="{{ route('admin.biz-info.tenders.show', $tender->id) }}"
                                                        class="btn btn-success btn-sm float-left mb-1 mr-1">
                                                         {{-- <i class="fas fa-eye"></i> --}}
                                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                                     </a>
-                                                    <a href="{{ route('tenders.edit', ['tender' => $tender->id]) }}"
+                                                    <a href="{{ route('admin.biz-info.tenders.edit', ['tender' => $tender->id]) }}"
                                                        class="btn btn-info btn-sm float-left mb-1 mr-1">
                                                         <i class="fas fa-pencil-alt"></i>
                                                     </a>
                                                     <form
-                                                        action="{{ route('tenders.destroy', ['tender' => $tender->id]) }}"
+                                                        action="{{ route('admin.biz-info.tenders.destroy', ['tender' => $tender->id]) }}"
                                                         method="post" class="float-left">
                                                         @csrf
                                                         @method('DELETE')

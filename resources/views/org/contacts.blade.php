@@ -10,7 +10,7 @@
                         <h3>{{ $adress[0]->__('adress') }}</h3>
                     </div>
                     @foreach ($contacts as $contact)
-                        <div class="row r1">
+                        <div class="row r1 text-white" style="background-color: #01589d">
                             <div class="col-lg-12 col-12 cnt1" style="padding-bottom:0px;">
                                 <h4>{{ $contact->__('name') }}</h4>
                             </div>

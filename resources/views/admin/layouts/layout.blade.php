@@ -181,97 +181,54 @@
                         </ul>
                     </li>
 
-                    {{-- Тендеры --}}
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-clone"></i>
-                            <p>Тендеры<i class="right fas fa-angle-left"></i></p>
+                    <li class="nav-header"> Разделы </li>
+                    {{-- Бизнес инфо --}}
+                    <li class="nav-item {{ request()->segment(2) === 'biz-info' ? 'menu-is-opening menu-open' : '' }}">
+                        <a href="#" class="nav-link {{ request()->segment(2) === 'biz-info' ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                Бизнес инфо
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('tenders.index') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Список тендеров</p>
+                            {{-- Местные бренды --}}
+                            <li class="nav-item has-treeview">
+                                <a href="{{ route('admin.biz-info.local-brands.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-clone"></i>
+                                    <p>Местные бренды <i class="right fas fa-angle-left"></i></p>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="{{ route('tenders.create') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Добавить новый тендер</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
 
-                    {{-- Партнеры --}}
-                    <li class="nav-item has-treeview">
-                        <a href="{{ route('local-brands.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-clone"></i>
-                            <p>Местные бренды <i class="right fas fa-angle-left"></i></p>
-                        </a>
-                    </li>
+                            {{-- Тендеры --}}
+                            <li class="nav-item has-treeview">
+                                <a href="{{ route('admin.biz-info.tenders.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-clone"></i>
+                                    <p>Тендеры<i class="right fas fa-angle-left"></i></p>
+                                </a>
+                            </li>
 
-                    {{-- Партнеры --}}
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-clone"></i>
-                            <p>Партнеры<i class="right fas fa-angle-left"></i></p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('partners.index') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Список партнеров</p>
+                            {{-- Партнеры --}}
+                            <li class="nav-item has-treeview">
+                                <a href="{{ route('admin.biz-info.partners.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-clone"></i>
+                                    <p>Партнеры<i class="right fas fa-angle-left"></i></p>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="{{ route('partners.create') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Новые партнеры</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
 
-                    {{-- Туркменские предложении --}}
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-clone"></i>
-                            <p>Тм предложения<i class="right fas fa-angle-left"></i></p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('tm_offers.index') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Список предложений</p>
+                            {{-- Туркменские предложении --}}
+                            <li class="nav-item has-treeview">
+                                <a href="{{ route('admin.biz-info.tm_offers.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-clone"></i>
+                                    <p>Тм предложения<i class="right fas fa-angle-left"></i></p>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="{{ route('tm_offers.create') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Добавить предложение</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
 
-                    {{-- Inostrannyye predlozheniye --}}
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-clone"></i>
-                            <p>Иност. предложения<i class="right fas fa-angle-left"></i></p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('fo_offers.index') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Список предложений</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('fo_offers.create') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Добавить предложение</p>
+                            {{-- Inostrannyye predlozheniye --}}
+                            <li class="nav-item has-treeview">
+                                <a href="{{ route('admin.biz-info.fo_offers.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-clone"></i>
+                                    <p>Иност. предложения<i class="right fas fa-angle-left"></i></p>
                                 </a>
                             </li>
                         </ul>

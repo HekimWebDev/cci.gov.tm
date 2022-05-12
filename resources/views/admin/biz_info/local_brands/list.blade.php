@@ -18,7 +18,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a href="{{ route('local-brands.create') }}" class="btn btn-primary mb-3">Добавить</a>
+                            <a href="{{ route('admin.biz-info.local-brands.create') }}" class="btn btn-primary mb-3">Добавить</a>
                             @if (count($brands))
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-hover table-striped">
@@ -35,12 +35,12 @@
                                         @foreach ($brands as $brand)
                                             <tr>
                                                 <td>
-                                                    <a href="{{ route('local-brands.edit', $brand->id) }}"
+                                                    <a href="{{ route('admin.biz-info.local-brands.edit', $brand->id) }}"
                                                        class="btn btn-info btn-sm float-left mb-1 mr-1">
                                                         <i class="fas fa-pencil-alt"></i>
                                                     </a>
                                                     <form
-                                                        action="{{ route('local-brands.destroy', $brand->id) }}"
+                                                        action="{{ route('admin.biz-info.local-brands.destroy', $brand->id) }}"
                                                         method="post" class="float-left">
                                                         @csrf
                                                         @method('DELETE')
