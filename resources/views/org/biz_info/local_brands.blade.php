@@ -1,12 +1,12 @@
 @extends('org.layouts.layout')
-
+1
 @section('title', $title)
 
 @section('content')
 
     <section class="news1 m-auto">
         <div class="news-main1 m-auto"><a href="{{ route('home') }}" class="to_main_page">@lang('main.main')</a>
-            <h1>Ýerli brendler</h1>
+            <h1>@lang('main.brands')</h1>
         </div>
     </section>
 

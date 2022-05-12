@@ -30,6 +30,7 @@ return [
     'baranches' => 'Enterprises',
     'album' => 'Gallery',
     'conf' => 'Conferences',
+    'brands' => 'Local brands',
     'contacts' => [
         'adress' => 'Address',
         'loc' => 'Turkmenistan, Ashgabat, Chandybil avenue, 143',
