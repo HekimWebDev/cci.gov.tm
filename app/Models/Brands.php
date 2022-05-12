@@ -39,9 +39,9 @@ class Brands extends Model
 
     public function getImage(): string
     {
-        // if (!$this->thumbnail) {
-        //     return asset('no-image.png');
-        // }
+         if (!$this->thumbnail) {
+             return asset('no-image.jpg');
+         }
         return asset("uploads/{$this->thumbnail}");
     }
 
