@@ -1,5 +1,5 @@
 @extends('org.layouts.layout')
-1
+
 @section('title', $title)
 
 @section('content')
@@ -14,9 +14,10 @@
         <div class="container">
             <div class="row-div text-center">
                 @foreach($brands as $brand)
+                    @continue(($brand->__('title') && $brand->__('article')) === false)
                     <div class="col-3 mb-3">
                         <div class="card">
-                            <img class="img-fluid mb-5 mt-2" src="{{ $brand->getImage() }}" alt="Card image cap">
+                            <img class="img-fluid mb-5 mt-2" src="{{ $brand->getImage() ?? '' }}">
                             <div class="card-block">
                                 <h4 class="card-title mb-3">{{ $brand->__('title') }}</h4>
                                 <p class="card-text mt-2 mb-4">{{ $brand->__('article') }}</p>
