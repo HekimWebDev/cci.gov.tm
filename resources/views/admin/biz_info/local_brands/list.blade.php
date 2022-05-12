@@ -50,8 +50,8 @@
                                                         </button>
                                                     </form>
                                                 </td>
-                                                <td>{{ $brand->title ?? $brand->title_tk ?? $brand->title_en }}</td>
-                                                <td>{{ $brand->article ?? $brand->article_tk ?? $brand->title_en }}</td>
+                                                <td>{{ $brand->title_tk }}</td>
+                                                <td>{{ $brand->article_tk}}</td>
                                                 <td>{{ $brand->created_at }}</td>
                                                 <td><img src="{{ $brand->getImage() }}"
                                                          class="img-fluid img-thumnail" width="130" alt=""></td>

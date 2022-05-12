@@ -74,11 +74,25 @@
                                 <img class="img-thumbnail m-1" id="img-preview" width="300" src="" /><br>
 
                                 <div class="form-group">
-                                    <label for="files">Файл</label>
+                                    <label for="file">Файл</label>
                                     <div class="custom-file">
-                                        <input type="file" name="files" id="files" class="custom-file-input">
-                                        <label class="custom-file-label @error('files') is-invalid @enderror"
-                                               for="files">Выберите изображение</label>
+                                        <input type="file" name="file" id="file" class="custom-file-input">
+                                        <label class="custom-file-label @error('file') is-invalid @enderror"
+                                               for="file">Выберите изображение</label>
+                                    </div>
+
+                                    <label class="mt-3" for="file">Файл (tk)</label>
+                                    <div class="custom-file">
+                                        <input type="file" name="file_tk" id="file_tk" class="custom-file-input">
+                                        <label class="custom-file-label @error('file_tk') is-invalid @enderror"
+                                               for="file_tk">Выберите файл</label>
+                                    </div>
+
+                                    <label class="mt-3" for="file_en">Файл (en)</label>
+                                    <div class="custom-file">
+                                        <input type="file" name="file_en" id="file_en" class="custom-file-input">
+                                        <label class="custom-file-label @error('file_en') is-invalid @enderror"
+                                               for="file_en">Выберите файл</label>
                                     </div>
                                 </div>
 
