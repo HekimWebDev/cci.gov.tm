@@ -23,9 +23,9 @@ class Foexhibition extends Model
         'title_tk',
         'thumbnail',
         'date',
-        'files',
-        'files_tk',
-        'files_en',
+        'file',
+        'file_tk',
+        'file_en',
     ];
 
 
@@ -41,36 +41,36 @@ class Foexhibition extends Model
         return null;
     }
 
-    public static function uploadFiles(Request $request, $files = null)
+    public static function uploadFiles(Request $request, $file = null)
     {
-        if ($request->hasFile('files')) {
-            if ($files) {
-                Storage::delete($files);
+        if ($request->hasFile('file')) {
+            if ($file) {
+                Storage::delete($file);
             }
             $folder = date('Y-m-d');
-            return $request->file('files')->store("files/{$folder}");
+            return $request->file('file')->store("file/{$folder}");
         }
         return null;
     }
-    public static function uploadFilesTk(Request $request, $files = null)
+    public static function uploadFilesTk(Request $request, $file = null)
     {
-        if ($request->hasFile('files_tk')) {
-            if ($files) {
-                Storage::delete($files);
+        if ($request->hasFile('file_tk')) {
+            if ($file) {
+                Storage::delete($file);
             }
             $folder = date('Y-m-d');
-            return $request->file('files_tk')->store("files/{$folder}");
+            return $request->file('file_tk')->store("file/{$folder}");
         }
         return null;
     }
-    public static function uploadFilesEn(Request $request, $files = null)
+    public static function uploadFilesEn(Request $request, $file = null)
     {
-        if ($request->hasFile('files_en')) {
-            if ($files) {
-                Storage::delete($files);
+        if ($request->hasFile('file_en')) {
+            if ($file) {
+                Storage::delete($file);
             }
             $folder = date('Y-m-d');
-            return $request->file('files_en')->store("files/{$folder}");
+            return $request->file('file_en')->store("file/{$folder}");
         }
         return null;
     }
@@ -85,6 +85,6 @@ class Foexhibition extends Model
 
     public function getFile(): string
     {
-        return asset("uploads/{$this->files}");
+        return asset("uploads/{$this->file}");
     }
 }

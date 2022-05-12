@@ -9,7 +9,7 @@
     </section>
     <section class="blocks " style="background: none!important;">
         @foreach ($fo_ex as $x)
-        @continue($x->__('title') == false)
+        @continue($x->__('title') === false)
             <div class="b3 m-auto">
                 <div class="adv ">
                     <div class="container">
@@ -21,8 +21,8 @@
                             <div class="col-lg-5 col-sm-7  s2">
                                 <a href="#" style="cursor: auto;">
                                     <h3>{{ $x->__('title') }}</h3>
-                                    @if($x->__('files'))
-                                        <a href="{{ asset("uploads/".$x->__('files')) }}">Нажмите чтобы скачать файл</a>
+                                    @if($x->__('file'))
+                                        <a href="{{ asset("uploads/".$x->__('file')) }}">Нажмите чтобы скачать файл</a>
                                     @endif
                                 </a>
                             </div><!-- /.col-lg-6 -->
