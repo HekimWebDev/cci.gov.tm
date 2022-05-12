@@ -27,7 +27,7 @@
                     </div>
                 @endforeach
             </div>
-
+            {{ $brands->links()  }}
         </div>
     </section>
 
