@@ -30,6 +30,7 @@ return [
     'baranches' => 'Kärhanalarymyz',
     'album' => 'Galareýa',
     'conf' => 'Maslahatllar',
+    'brands' => 'Ýerli markalar',
     'contacts' => [
         'adress' => 'Salgysy',
         'loc' => 'Türkmenistan, Aşgabat şäheri, Çandybil köçesi, 143',
