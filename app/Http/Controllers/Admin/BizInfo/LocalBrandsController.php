@@ -71,7 +71,7 @@ class LocalBrandsController extends Controller
 
         $brand->update($data);
 
-        return redirect()->route('local-brands.index')->with('success', 'Бренд успешно изменён');
+        return redirect()->back()->with('success', 'Бренд успешно изменён');
     }
 
     public function destroy($id): RedirectResponse
@@ -81,6 +81,6 @@ class LocalBrandsController extends Controller
 
         $brands->delete();
 
-        return redirect()->route('local-brands.index')->with('success', 'Бренд успешно удалён');
+        return redirect()->back()->with('success', 'Бренд успешно удалён');
     }
 }

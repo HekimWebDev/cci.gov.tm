@@ -12,8 +12,6 @@ class LocalBrandsController extends Controller
 {
     public function __invoke()
     {
-        Excel::import(new BrandsImport(), public_path('telekeciler.xlsx'));
-
         $brands = Brands::orderByDesc('id')->paginate(12);
 
         $title = 'Local brands';
