@@ -37,11 +37,11 @@
                                 <li class="list-group-item"><a href="{{ route('carousels.index') }}">Каруселные
                                         баннеры</a></li>
                                 <li class="list-group-item"><a href="{{ route('banners.index') }}">Баннеры</a></li>
-                                <li class="list-group-item"><a href="{{ route('tenders.index') }}">Тендеры</a></li>
-                                <li class="list-group-item"><a href="{{ route('partners.index') }}">Партнеры</a></li>
-                                <li class="list-group-item"><a href="{{ route('tm_offers.index') }}">Коммерческие
+                                <li class="list-group-item"><a href="{{ route('admin.biz-info.tenders.index') }}">Тендеры</a></li>
+                                <li class="list-group-item"><a href="{{ route('admin.biz-info.partners.index') }}">Партнеры</a></li>
+                                <li class="list-group-item"><a href="{{ route('admin.biz-info.tm_offers.index') }}">Коммерческие
                                         предложения производителей Туркменистана</a></li>
-                                <li class="list-group-item"><a href="{{ route('fo_offers.index') }}">Коммерческие
+                                <li class="list-group-item"><a href="{{ route('admin.biz-info.fo_offers.index') }}">Коммерческие
                                         предложения зарубежных партнеров</a></li>
                                 <li class="list-group-item"><a href="{{ route('form.index') }}">Анкета соискателя</a>
                                 </li>

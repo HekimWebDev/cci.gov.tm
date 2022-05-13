@@ -19,7 +19,7 @@
                         <!-- /.card-header -->
 
                         <form role="form" method="post" enctype="multipart/form-data"
-                              action="{{ route('local-brands.update', ['local_brand' => $brand->id]) }}">
+                              action="{{ route('admin.biz-info.local-brands.update', ['local_brand' => $brand->id]) }}">
                             @csrf
                             @method('PUT')
                             <div class="card-body">

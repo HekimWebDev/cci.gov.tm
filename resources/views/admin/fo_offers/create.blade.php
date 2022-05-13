@@ -19,7 +19,7 @@
                         </div>
                         <!-- /.card-header -->
 
-                        <form role="form" method="post" action="{{ route('fo_offers.store') }}"
+                        <form role="form" method="post" action="{{ route('admin.biz-info.fo_offers.store') }}"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
@@ -82,7 +82,7 @@
 
                                 <div class="form-group">
                                     <label for="email">Электронное почта</label>
-                                    <input type="email" class="form-control @error('adress') is-invalid @enderror"
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror"
                                         name="email" id="email" value="{{ old('email') }}"
                                         placeholder="Электронное почта">
                                 </div>

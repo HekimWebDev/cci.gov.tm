@@ -21,9 +21,6 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <div class="card-title mr-3">
-                            <img src="{{ $partner->getImage() }}" class="img-thumbnail">
-                        </div>
                         <dl class="row">
                             <dt class="col-sm-4">Имя</dt>
                             <dd class="col-sm-8">{{ $partner->name }}</dd>
@@ -52,7 +49,10 @@
                             <dt class="col-sm-4">Веб-сайт</dt>
                             <dd class="col-sm-8">{{ $partner->web }}</dd>
                         </dl>
-                        <a class="btn btn-primary" href="{{ route('partners.edit', $partner->id) }}"
+                        <div class="card-title mr-3">
+                            <img src="{{ $partner->getImage() }}" class="img-thumbnail img-fluid">
+                        </div>
+                        <a class="btn btn-primary" href="{{ route('admin.biz-info.partners.edit', $partner->id) }}"
                             role="button">Редактировать</a>
                     </div>
                     <!-- /.card-body -->

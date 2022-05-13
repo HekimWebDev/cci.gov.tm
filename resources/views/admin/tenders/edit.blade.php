@@ -19,7 +19,7 @@
                         </div>
                         <!-- /.card-header -->
 
-                        <form role="form" method="post" action="{{ route('tenders.update', ['tender' => $tender->id]) }}">
+                        <form role="form" method="post" action="{{ route('admin.biz-info.tenders.update', ['tender' => $tender->id]) }}">
                             @csrf
                             @method('PUT')
                             <div class="card-body">

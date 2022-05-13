@@ -19,7 +19,7 @@
                         <!-- /.card-header -->
 
                         <form role="form" method="post" enctype="multipart/form-data"
-                            action="{{ route('tm_offers.update', ['tm_offer' => $tm_offer->id]) }}">
+                            action="{{ route('admin.biz-info.tm_offers.update', ['tm_offer' => $tm_offer->id]) }}">
                             @csrf
                             @method('PUT')
                             <div class="card-body">

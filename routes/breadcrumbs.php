@@ -115,22 +115,22 @@ Breadcrumbs::for('bannerCreate', function (BreadcrumbTrail $trail) {
 // Home > Tenders
 Breadcrumbs::for('tender', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Тендеры', route('tenders.index'));
+    $trail->push('Тендеры', route('admin.biz-info.tenders.index'));
 });
 // Home > Tenders-Create
 Breadcrumbs::for('tenderCreate', function (BreadcrumbTrail $trail) {
     $trail->parent('tender');
-    $trail->push('Создать тендер', route('tenders.create'));
+    $trail->push('Создать тендер', route('admin.biz-info.tenders.create'));
 });
 // Home > Tenders-Edit
 Breadcrumbs::for('tenderEdit', function (BreadcrumbTrail $trail, Tender $tender) {
     $trail->parent('tender');
-    $trail->push($tender->title, route('tenders.edit', $tender));
+    $trail->push($tender->title, route('admin.biz-info.tenders.edit', $tender));
 });
 // Home > Tenders-Single
 Breadcrumbs::for('tenderSingle', function (BreadcrumbTrail $trail, Tender $tender) {
     $trail->parent('tender');
-    $trail->push($tender->title, route('tender.single', $tender));
+    $trail->push($tender->title, route('admin.biz-info.tenders.show', $tender));
 });
 // -------------------------------------------------End Tenders---------------------------------------------------
 //                                           =========================
@@ -138,40 +138,40 @@ Breadcrumbs::for('tenderSingle', function (BreadcrumbTrail $trail, Tender $tende
 // Home > Brands
 Breadcrumbs::for('brand', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Местные бренды', route('local-brands.index'));
+    $trail->push('Местные бренды', route('admin.biz-info.local-brands.index'));
 });
 // Home > Brands-Create
 Breadcrumbs::for('brandCreate', function (BreadcrumbTrail $trail) {
     $trail->parent('brand');
-    $trail->push('Создать бренд', route('local-brands.create'));
+    $trail->push('Создать бренд', route('admin.biz-info.local-brands.create'));
 });
 // Home > Brands-Edit
 Breadcrumbs::for('brandEdit', function (BreadcrumbTrail $trail, Brands $brand) {
     $trail->parent('brand');
-    $trail->push($brand->title, route('local-brands.edit', $brand));
+    $trail->push($brand->title, route('admin.biz-info.local-brands.edit', $brand));
 });
-// -------------------------------------------------End Tenders---------------------------------------------------
+// -------------------------------------------------End Brands---------------------------------------------------
 //                                           =========================
 // --------------------------------------------------Partners-----------------------------------------------------
 // Home > Partners
 Breadcrumbs::for('partner', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Партнеры', route('partners.index'));
+    $trail->push('Партнеры', route('admin.biz-info.partners.index'));
 });
 // Home > Partners-Create
 Breadcrumbs::for('partnerCreate', function (BreadcrumbTrail $trail) {
     $trail->parent('partner');
-    $trail->push('Добавить партнера', route('partners.create'));
+    $trail->push('Добавить партнера', route('admin.biz-info.partners.create'));
 });
 // Home > Partners-Edit
 Breadcrumbs::for('partnerEdit', function (BreadcrumbTrail $trail, Partner $partner) {
     $trail->parent('partner');
-    $trail->push($partner->name, route('partners.edit', $partner));
+    $trail->push($partner->name, route('admin.biz-info.partners.edit', $partner));
 });
 // Home > Partners-Single
 Breadcrumbs::for('partnerSingle', function (BreadcrumbTrail $trail, Partner $partner) {
     $trail->parent('partner');
-    $trail->push($partner->name, route('partner.single', $partner));
+    $trail->push($partner->name, route('admin.biz-info.partners.show', $partner));
 });
 // -------------------------------------------------End Partners---------------------------------------------------
 //                                           =========================
@@ -179,17 +179,17 @@ Breadcrumbs::for('partnerSingle', function (BreadcrumbTrail $trail, Partner $par
 // Home > Tm-Offers
 Breadcrumbs::for('tm_offer', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Тм предложения', route('tm_offers.index'));
+    $trail->push('Тм предложения', route('admin.biz-info.tm_offers.index'));
 });
 // Home > Tm-Offers-Create
 Breadcrumbs::for('tm_offerCreate', function (BreadcrumbTrail $trail) {
     $trail->parent('tm_offer');
-    $trail->push('Создать предложения', route('tm_offers.create'));
+    $trail->push('Создать предложения', route('admin.biz-info.tm_offers.create'));
 });
 // Home > Tm-Offers-Edit
 Breadcrumbs::for('tm_offerEdit', function (BreadcrumbTrail $trail, Tmoffer $tm_offer) {
     $trail->parent('tm_offer');
-    $trail->push($tm_offer->name, route('tm_offers.edit', $tm_offer));
+    $trail->push($tm_offer->name, route('admin.biz-info.tm_offers.edit', $tm_offer));
 });
 // -------------------------------------------------End Tm-Offers---------------------------------------------------
 //                                           =========================
@@ -197,17 +197,17 @@ Breadcrumbs::for('tm_offerEdit', function (BreadcrumbTrail $trail, Tmoffer $tm_o
 // Home > Fo-Offers
 Breadcrumbs::for('fo_offer', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Зарубежные предложения', route('fo_offers.index'));
+    $trail->push('Зарубежные предложения', route('admin.biz-info.fo_offers.index'));
 });
 // Home > Fo-Offers-Create
 Breadcrumbs::for('fo_offerCreate', function (BreadcrumbTrail $trail) {
     $trail->parent('fo_offer');
-    $trail->push('Создать предложения', route('fo_offers.create'));
+    $trail->push('Создать предложения', route('admin.biz-info.fo_offers.create'));
 });
 // Home > Fo-Offers-Edit
 Breadcrumbs::for('fo_offerEdit', function (BreadcrumbTrail $trail, Fooffer $fo_offer) {
     $trail->parent('fo_offer');
-    $trail->push($fo_offer->name, route('fo_offers.edit', $fo_offer));
+    $trail->push($fo_offer->name, route('admin.biz-info.fo_offers.edit', $fo_offer));
 });
 // -------------------------------------------------End Fo-Offers---------------------------------------------------
 //                                           =========================

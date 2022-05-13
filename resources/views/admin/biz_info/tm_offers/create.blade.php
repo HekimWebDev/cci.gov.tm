@@ -19,7 +19,7 @@
                         </div>
                         <!-- /.card-header -->
 
-                        <form role="form" method="post" action="{{ route('tm_offers.store') }}"
+                        <form role="form" method="post" action="{{ route('admin.biz-info.tm_offers.store') }}"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">

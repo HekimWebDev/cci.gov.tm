@@ -22,7 +22,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <a href="{{ route('fo_offers.create') }}" class="btn btn-primary mb-3">Добавить
+                        <a href="{{ route('admin.biz-info.fo_offers.create') }}" class="btn btn-primary mb-3">Добавить
                             предложении</a>
                         @if (count($fo_offers))
                         <div class="table-responsive">
@@ -41,12 +41,12 @@
                                     @foreach($fo_offers as $fo_offer)
                                     <tr>
                                         <td>
-                                            <a href="{{ route('fo_offers.edit', ['fo_offer' => $fo_offer->id]) }}"
+                                            <a href="{{ route('admin.biz-info.fo_offers.edit', ['fo_offer' => $fo_offer->id]) }}"
                                                 class="btn btn-info btn-sm float-left mb-1 mr-1">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
                                             <form
-                                                action="{{ route('fo_offers.destroy', ['fo_offer' => $fo_offer->id]) }}"
+                                                action="{{ route('admin.biz-info.fo_offers.destroy', ['fo_offer' => $fo_offer->id]) }}"
                                                 method="post" class="float-left">
                                                 @csrf
                                                 @method('DELETE')
