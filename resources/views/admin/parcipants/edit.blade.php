@@ -20,7 +20,7 @@
                     <!-- /.card-header -->
 
                     <form role="form" method="post" enctype="multipart/form-data"
-                        action="{{ route('parcipants_events.update', $parcipants->id) }}">
+                        action="{{ route('exhibition.parcipants_events.update', $parcipants->id) }}">
                         @csrf
                         @method('PUT')
                         <div class="card-body">

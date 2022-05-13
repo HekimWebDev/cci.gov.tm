@@ -12,24 +12,22 @@ class BrandsImport implements ToCollection
     public function collection(Collection $rows)
     {
 
+        $i = 0;
         foreach ($rows as $row)
         {
-            if (!isset($row[0])){
+            $i++;
+            if ($i === 1){
                 continue;
             }
 
-            /*Brands::create([
-                'title' => $row[1],
-                'article' => $row[2],
-            ]);*/
+            dd($row[12]);
 
+            $name = $row[1];
+            $title = $row[7];
+            $site = $row[9];
+            $mail = $row[10];
+            $address = $row[12];
 
-            $brand = Brands::find($row[0]);
-
-            $brand->title_tk = $row[1];
-            $brand->article_tk = $row[2];
-
-            $brand->save();
         }
 
     }

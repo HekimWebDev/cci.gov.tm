@@ -19,7 +19,7 @@
                         </div>
                         <!-- /.card-header -->
 
-                        <form role="form" method="post" action="{{ route('parcipants_events.store') }}"
+                        <form role="form" method="post" action="{{ route('exhibition.parcipants_events.store') }}"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">

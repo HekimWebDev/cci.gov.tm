@@ -221,37 +221,37 @@ Breadcrumbs::for('form', function (BreadcrumbTrail $trail) {
 //                                           =========================
 // -------------------------------------------------Tm-Exhibition-------------------------------------------------------
 // Home > Tm-Exhibition
-Breadcrumbs::for('tm_exhibitions', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('tm_exhibitions', static function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Выставки в Туркменистане', route('tm_exhibitions.index'));
+    $trail->push('Выставки в Туркменистане', route('exhibition.tm_exhibitions.index'));
 });
 // Home > Tm-Exhibition-Create
-Breadcrumbs::for('tm_exhibitionsCreate', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('tm_exhibitionsCreate', static function (BreadcrumbTrail $trail) {
     $trail->parent('tm_exhibitions');
-    $trail->push('Создать Выставки', route('tm_exhibitions.create'));
+    $trail->push('Создать Выставки', route('exhibition.tm_exhibitions.create'));
 });
 // Home > Tm-Exhibition-Edit
-Breadcrumbs::for('tm_exhibitionsEdit', function (BreadcrumbTrail $trail, Tmexhibition $tm_exhibitions) {
+Breadcrumbs::for('tm_exhibitionsEdit', static function (BreadcrumbTrail $trail, Tmexhibition $tm_exhibitions) {
     $trail->parent('tm_exhibitions');
-    $trail->push('Редактирование выстовки', route('tm_exhibitions.edit', $tm_exhibitions));
+    $trail->push('Редактирование выстовки', route('exhibition.tm_exhibitions.edit', $tm_exhibitions));
 });
 // -------------------------------------------------End Tm-Offers---------------------------------------------------
 //                                           =========================
 // -------------------------------------------------Fo-Exhibition-------------------------------------------------------
 // Home > Fo-Exhibition
-Breadcrumbs::for('fo_exhibitions', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('fo_exhibitions', static function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Выставки за рубежом', route('fo_exhibitions.index'));
+    $trail->push('Выставки за рубежом', route('exhibition.fo_exhibitions.index'));
 });
 // Home > Fo-Exhibition-Create
-Breadcrumbs::for('fo_exhibitionsCreate', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('fo_exhibitionsCreate', static function (BreadcrumbTrail $trail) {
     $trail->parent('fo_exhibitions');
-    $trail->push('Создать Выставки', route('fo_exhibitions.create'));
+    $trail->push('Создать Выставки', route('exhibition.fo_exhibitions.create'));
 });
 // Home > Fo-Exhibition-Edit
-Breadcrumbs::for('fo_exhibitionsEdit', function (BreadcrumbTrail $trail, Foexhibition $fo_exhibitions) {
+Breadcrumbs::for('fo_exhibitionsEdit', static function (BreadcrumbTrail $trail, Foexhibition $fo_exhibitions) {
     $trail->parent('fo_exhibitions');
-    $trail->push('Редактирование выстовки', route('fo_exhibitions.edit', $fo_exhibitions));
+    $trail->push('Редактирование выстовки', route('exhibition.fo_exhibitions.edit', $fo_exhibitions));
 });
 // -------------------------------------------------End Tm-Offers---------------------------------------------------
 //                                           =========================
@@ -318,17 +318,17 @@ Breadcrumbs::for('informationsEdit', function (BreadcrumbTrail $trail, Informati
 // Home > Parcipants
 Breadcrumbs::for('parcipants_events', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Участникам мероприятий', route('parcipants_events.index'));
+    $trail->push('Участникам мероприятий', route('exhibition.parcipants_events.index'));
 });
 // Home > Parcipants-Create
 Breadcrumbs::for('parcipants_eventsCreate', function (BreadcrumbTrail $trail) {
     $trail->parent('parcipants_events');
-    $trail->push('Добавить страницы', route('parcipants_events.create'));
+    $trail->push('Добавить страницы', route('exhibition.parcipants_events.create'));
 });
 // Home > Parcipants-Edit
 Breadcrumbs::for('parcipants_eventsEdit', function (BreadcrumbTrail $trail, Parcipants $parcipants_events) {
     $trail->parent('parcipants_events');
-    $trail->push('Редактирование страницы', route('parcipants_events.edit', $parcipants_events));
+    $trail->push('Редактирование страницы', route('exhibition.parcipants_events.edit', $parcipants_events));
 });
 // -------------------------------------------------End Parcipants---------------------------------------------------
 //                                           =========================

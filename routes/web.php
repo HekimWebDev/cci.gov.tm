@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\BranchesController;
 use App\Http\Controllers\Admin\CarouselsController;
 use App\Http\Controllers\Admin\ConferencesController;
 use App\Http\Controllers\Admin\ContactsController;
+use App\Http\Controllers\Admin\Exhibition\TmExhibitionsController;
 use App\Http\Controllers\Admin\FoExhibitionsController;
 use App\Http\Controllers\Admin\GalleriesController;
 use App\Http\Controllers\Admin\InformationsController;
@@ -19,7 +20,6 @@ use App\Http\Controllers\Admin\MainController as AdminMainController;
 use App\Http\Controllers\Admin\MembershipsController;
 use App\Http\Controllers\Admin\NewsCciController;
 use App\Http\Controllers\Admin\NewsController;
-use App\Http\Controllers\Admin\TmExhibitionsController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AllController;
 use App\Http\Controllers\BizInfo\FoOffersController as FrontFoOffersController;
@@ -53,6 +53,15 @@ Route::group([
         Route::resource('/fo_offers', FoOffersController::class);
     });
 
+    Route::group([
+        'prefix' => 'exhibition',
+        'as' => 'exhibition.',
+    ], static function (){
+        Route::resource('/tm_exhibitions', TmExhibitionsController::class);
+        Route::resource('/fo_exhibitions', FoExhibitionsController::class);
+        Route::resource('/parcipants_events', ParcipantsController::class);
+    });
+
     Route::resource('/banners', BannersController::class);
     Route::resource('/abouts', AboutController::class);
     Route::resource('/memberships', MembershipsController::class);
@@ -65,8 +74,6 @@ Route::group([
 
     Route::resource('/news', NewsController::class);
     Route::resource('/news_cci', NewsCciController::class);
-    Route::resource('/tm_exhibitions', TmExhibitionsController::class);
-    Route::resource('/fo_exhibitions', FoExhibitionsController::class);
     Route::resource('/galleries', GalleriesController::class);
     Route::get('/album/{id}', [GalleriesController::class, 'single'])->name('album');
     Route::resource('/carousels', CarouselsController::class);
@@ -89,7 +96,6 @@ Route::post('check-email', static function (Request $request) {
 Route::get('locale/{locale}',  [MainController::class, 'changeLocale'])->name('locale');
 
 Route::group(['middleware' => 'set_locale'], (static function () {
-    Route::resource('/parcipants_events', ParcipantsController::class);
     Route::get('/parcipants_event',  [ParcipantsController::class, 'single'])->name('parcipants');
 
     Route::resource('/form', FormsController::class);
