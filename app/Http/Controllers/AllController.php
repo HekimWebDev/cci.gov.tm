@@ -31,7 +31,7 @@ class AllController extends Controller
     public function fo_exhibition()
     {
         $title = __('main.controllers.fo_ex');
-        $fo_ex = Foexhibition::paginate(10);
+        $fo_ex = Foexhibition::orderByDesc('id')->paginate(10);
         return view('org.fo_exhibition', compact('fo_ex', 'title'));
     }
 
