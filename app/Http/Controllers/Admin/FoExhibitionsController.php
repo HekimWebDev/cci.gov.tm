@@ -46,19 +46,17 @@ class FoExhibitionsController extends Controller
 
         Foexhibition::create($data);
 
-        return redirect()->route('fo_exhibitions.index')->with('success', 'Новая выставка успешна сохранилась');
+        return redirect()->route('exhibition.fo_exhibitions.index')->with('success', 'Новая выставка успешна сохранилась');
     }
 
 
-    public function edit(int $id)
+    public function edit(Foexhibition $fo_exhibition)
     {
-        $fo_exhibition = Foexhibition::find($id);
-
         return view('admin.fo_exhibitions.edit', compact('fo_exhibition'));
     }
 
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(Request $request, Foexhibition $fo_exhibition): RedirectResponse
     {
         $request->validate([
             'title' => 'required|min:3|max:255',
@@ -71,7 +69,6 @@ class FoExhibitionsController extends Controller
             'file_en' => 'nullable|file|mimes:doc,pdf,docx',
         ]);
 
-        $fo_exhibition = Foexhibition::find($id);
         $data = $request->all();
 
         if ($file = Foexhibition::uploadImage($request, $fo_exhibition->thumbnail)) {
@@ -81,29 +78,30 @@ class FoExhibitionsController extends Controller
         if ($file = Foexhibition::uploadFiles($request, $fo_exhibition->file)) {
             $data['file'] = $file;
         }
+
         if ($file = Foexhibition::uploadFilesTk($request, $fo_exhibition->file_tk)) {
             $data['file_tk'] = $file;
         }
+
         if ($file = Foexhibition::uploadFilesEn($request, $fo_exhibition->file_en)) {
             $data['file_en'] = $file;
         }
 
         $fo_exhibition->update($data);
-        return redirect()->route('fo_exhibitions.index')->with('success', 'Выставка успешна изменена');
+
+        return redirect()->route('exhibition.fo_exhibitions.index')->with('success', 'Выставка успешна изменена');
     }
 
 
-    public function destroy($id): RedirectResponse
+    public function destroy(Foexhibition $fo_exhibition): RedirectResponse
     {
-        $fo_exhibition = Foexhibition::find($id);
-
         Storage::delete($fo_exhibition->thumbnail);
         Storage::delete($fo_exhibition->file);
         Storage::delete($fo_exhibition->file_tk);
         Storage::delete($fo_exhibition->file_en);
 
-        $fo_exhibition->delete($id);
+        $fo_exhibition->delete();
 
-        return redirect()->route('fo_exhibitions.index')->with('success', 'Выставка успешна удалена');
+        return redirect()->route('exhibition.fo_exhibitions.index')->with('success', 'Выставка успешна удалена');
     }
 }

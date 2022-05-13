@@ -183,7 +183,7 @@
 
                     <li class="nav-header"> Разделы </li>
                     {{-- Бизнес инфо --}}
-                    <li class="nav-item {{ request()->segment(2) === 'biz-info' ? 'menu-is-opening menu-open' : '' }}">
+                    <li class="nav-item mb-3 {{ request()->segment(2) === 'biz-info' ? 'menu-is-opening menu-open' : '' }}">
                         <a href="#" class="nav-link {{ request()->segment(2) === 'biz-info' ? 'active' : '' }}">
                             <i class="nav-icon fas fa-chart-pie"></i>
                             <p>
@@ -234,63 +234,44 @@
                         </ul>
                     </li>
 
+                    <li class="nav-item {{ request()->segment(2) === 'exhibition' ? 'menu-is-opening menu-open' : '' }}">
+                        <a href="#" class="nav-link {{ request()->segment(2) === 'exhibition' ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                Выставки
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            {{-- Tm exhibition --}}
+                            <li class="nav-item has-treeview">
+                                <a href="{{ route('exhibition.tm_exhibitions.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-clone"></i>
+                                    <p>Выставки в Тм<i class="right fas fa-angle-left"></i></p>
+                                </a>
+                            </li>
+                            {{-- Fo-exhbition --}}
+                            <li class="nav-item has-treeview">
+                                <a href="{{ route('exhibition.fo_exhibitions.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-clone"></i>
+                                    <p>Выставки за рубежом<i class="right fas fa-angle-left"></i></p>
+                                </a>
+                            </li>
+                            {{-- uchastnikam merepriyatii --}}
+                            <li class="nav-item has-treeview">
+                                <a href="{{ route('exhibition.parcipants_events.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-clone"></i>
+                                    <p>Участникам мер-й</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     {{-- Вопросы --}}
                     <li class="nav-item has-treeview">
                         <a href="{{ route('form.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-edit"></i>
                             <p>Вопросы по анкетам</p>
-                        </a>
-                    </li>
-
-                    {{-- Tm exhibition --}}
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-clone"></i>
-                            <p>Выставки в Тм<i class="right fas fa-angle-left"></i></p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('tm_exhibitions.index') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Список выставок</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('tm_exhibitions.create') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Добавить выстовки</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    {{-- Fo-exhbition --}}
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-clone"></i>
-                            <p>Выставки за рубежом<i class="right fas fa-angle-left"></i></p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('fo_exhibitions.index') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Список выставок</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('fo_exhibitions.create') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Добавить выстовки</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    {{-- uchastnikam merepriyatii --}}
-                    <li class="nav-item has-treeview">
-                        <a href="{{ route('parcipants_events.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-clone"></i>
-                            <p>Участникам мер-й</p>
                         </a>
                     </li>
 

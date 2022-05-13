@@ -19,7 +19,7 @@
                         </div>
                         <!-- /.card-header -->
 
-                        <form role="form" method="post" action="{{ route('tm_exhibitions.store') }}"
+                        <form role="form" method="post" action="{{ route('exhibition.tm_exhibitions.store') }}"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">

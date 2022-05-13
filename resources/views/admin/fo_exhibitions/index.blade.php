@@ -14,11 +14,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>КАЛЕНДАРЬ ВЫСТАВОК</h5>
+                            <h4>КАЛЕНДАРЬ ВЫСТАВОК</h4>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a href="{{ route('fo_exhibitions.create') }}" class="btn btn-primary mb-3">Добавить</a>
+                            <a href="{{ route('exhibition.fo_exhibitions.create') }}" class="btn btn-primary mb-3">Добавить</a>
                             @if (count($fo_exhibitions))
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-hover table-striped">
@@ -34,13 +34,13 @@
                                             @foreach ($fo_exhibitions as $fo_exhibition)
                                                 <tr>
                                                     <td>
-                                                        <a href="{{ route('fo_exhibitions.edit', ['fo_exhibition' => $fo_exhibition->id]) }}"
+                                                        <a href="{{ route('exhibition.fo_exhibitions.edit', ['fo_exhibition' => $fo_exhibition->id]) }}"
                                                             class="btn btn-info btn-sm float-left mb-1 mr-1">
                                                             <i class="fas fa-pencil-alt"></i>
                                                         </a>
 
                                                         <form
-                                                            action="{{ route('fo_exhibitions.destroy', ['fo_exhibition' => $fo_exhibition->id]) }}"
+                                                            action="{{ route('exhibition.fo_exhibitions.destroy', ['fo_exhibition' => $fo_exhibition->id]) }}"
                                                             method="post" class="float-left">
                                                             @csrf
                                                             @method('DELETE')

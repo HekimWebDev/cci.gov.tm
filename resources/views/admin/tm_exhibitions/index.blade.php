@@ -19,7 +19,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a href="{{ route('tm_exhibitions.create') }}" class="btn btn-primary mb-3">Добавить
+                            <a href="{{ route('exhibition.tm_exhibitions.create') }}" class="btn btn-primary mb-3">Добавить
                                 выставоку</a>
                             @if (count($tm_exhibitions))
                                 <div class="table-responsive">
@@ -36,13 +36,13 @@
                                             @foreach ($tm_exhibitions as $tm_exhibition)
                                                 <tr>
                                                     <td>
-                                                        <a href="{{ route('tm_exhibitions.edit', ['tm_exhibition' => $tm_exhibition->id]) }}"
+                                                        <a href="{{ route('exhibition.tm_exhibitions.edit', ['tm_exhibition' => $tm_exhibition->id]) }}"
                                                             class="btn btn-info btn-sm float-left mb-1 mr-1">
                                                             <i class="fas fa-pencil-alt"></i>
                                                         </a>
 
                                                         <form
-                                                            action="{{ route('tm_exhibitions.destroy', ['tm_exhibition' => $tm_exhibition->id]) }}"
+                                                            action="{{ route('exhibition.tm_exhibitions.destroy', ['tm_exhibition' => $tm_exhibition->id]) }}"
                                                             method="post" class="float-left">
                                                             @csrf
                                                             @method('DELETE')

@@ -14,6 +14,6 @@ class ImportExcelCommand extends Command
 
     public function handle()
     {
-        Excel::import(new BrandsImport(), public_path('telekeciler.xlsx'));
+        Excel::import(new BrandsImport(), public_path('РЕЕСТР НАДЕЖНЫХ ПАРТНЕРОВ на 08 04 2022.xlsx'));
     }
 }

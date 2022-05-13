@@ -18,7 +18,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <a href="{{ route('parcipants_events.create') }}" class="btn btn-primary mb-3">Добавить новую страницу</a>
+                        <a href="{{ route('exhibition.parcipants_events.create') }}" class="btn btn-primary mb-3">Добавить новую страницу</a>
                         @if (count($parcipants))
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover table-striped">
@@ -32,12 +32,12 @@
                                     @foreach($parcipants as $parcipant)
                                     <tr>
                                         <td>
-                                            <a href="{{ route('parcipants_events.edit', $parcipant->id) }}"
+                                            <a href="{{ route('exhibition.parcipants_events.edit', $parcipant->id) }}"
                                                 class="btn btn-info btn-sm float-left mb-1 mr-1">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
                                             <form
-                                                action="{{ route('parcipants_events.destroy', $parcipant->id) }}"
+                                                action="{{ route('exhibition.parcipants_events.destroy', $parcipant->id) }}"
                                                 method="post" class="float-left">
                                                 @csrf
                                                 @method('DELETE')
