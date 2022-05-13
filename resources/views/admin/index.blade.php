@@ -45,9 +45,9 @@
                                         предложения зарубежных партнеров</a></li>
                                 <li class="list-group-item"><a href="{{ route('form.index') }}">Анкета соискателя</a>
                                 </li>
-                                <li class="list-group-item"><a href="{{ route('tm_exhibitions.index') }}">Выставки в
+                                <li class="list-group-item"><a href="{{ route('exhibition.tm_exhibitions.index') }}">Выставки в
                                         Туркменистане</a></li>
-                                <li class="list-group-item"><a href="{{ route('fo_exhibitions.index') }}">Выставки
+                                <li class="list-group-item"><a href="{{ route('exhibition.fo_exhibitions.index') }}">Выставки
                                         зарубежом</a></li>
                                 <li class="list-group-item"><a href="{{ route('branches.index') }}">Предприятие</a></li>
                                 <li class="list-group-item"><a href="{{ route('informations.index') }}">Информация</a>
