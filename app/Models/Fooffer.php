@@ -8,11 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-/**
- * Class Post
- * @package App\Models
- * @mixin Builder;
- */
 class Fooffer extends Model
 {
     use HasFactory, Translatable;

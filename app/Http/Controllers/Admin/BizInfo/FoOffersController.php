@@ -12,7 +12,7 @@ class FoOffersController extends Controller
 {
     public function index()
     {
-        $fo_offers = Fooffer::orderByDesc('number')->paginate(10);
+        $fo_offers = Fooffer::orderByDesc('id')->paginate(10);
 
         return view('admin.fo_offers.index', compact('fo_offers'));
     }

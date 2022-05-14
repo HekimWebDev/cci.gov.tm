@@ -10,7 +10,7 @@
     <section class="blocks " style="background: none!important;">
 
         @foreach ($fo_offers as $fo_offer)
-        @continue($fo_offer->__('desc') == false)
+            @continue($fo_offer->__('desc') === false)
             <div class="b3 m-auto">
                 <div class="adv ">
                     <div class="container">
@@ -20,7 +20,7 @@
                                 <img src="{{ $fo_offer->getImage() }}" alt="" style="width: 100%;" class="align-middle">
                             </div>
                             <div class="col-lg-5 col-sm-7  s2">
-                                <h3>№{{ $fo_offer->number }} {{ $fo_offer->__('name') }}</h3>
+                                <h3>{{ $fo_offer->number ? '№'. $fo_offer->number : ''}} {{ $fo_offer->__('name') }}</h3>
                                 <p class="p1">
                                 <article>
                                     <div class="read-more js-read-more" data-rm-words="25">

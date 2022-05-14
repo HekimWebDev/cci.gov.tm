@@ -56,7 +56,7 @@
                                                 </button>
                                             </form>
                                         </td>
-                                        <td>{{ $fo_offer->number }}</td>
+                                        <td>{{ $fo_offer->number ?? ''}}</td>
                                         <td>{{ $fo_offer->name }}</td>
                                         <td>{!! $fo_offer->desc !!}</td>
                                         <td>{{ $fo_offer->datesingle }}</td>
