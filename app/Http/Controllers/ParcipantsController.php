@@ -15,6 +15,13 @@ class ParcipantsController extends Controller
         return view('admin.parcipants.index', compact('parcipants'));
     }
 
+    public function single()
+    {
+        $parcipants = Parcipants::get();
+        $title = 'parcipants-events';
+        return view('org.parcipants-events', compact('parcipants', 'title'));
+    }
+
 
     public function create()
     {
