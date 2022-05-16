@@ -193,11 +193,11 @@
                     <div class="carousel-item active">
                         <img class="d-block " height="330" width="100%"
                              src=" @if(app()->getLocale() === 'ru' || app()->getLocale() === null)
-                             {{ asset('uploads') . '/images/2022-05-09/banner_ru/nlHYB968YutluMhFfimLrJhuH9H9QmEVhqbIa4P3.jpg' }}
+                             {{ asset('images/banners/ru.jpg') }}
                              @elseif(app()->getLocale() === 'en')
-                             {{ asset('uploads') . '/images/2022-05-09/banner_en/hcv9WKWsbRd2GiKuvHGQVCvWvmiH91SbCBwxcH9u.jpg' }}
+                             {{ asset('images/banners/en.jpg') }}
                              @else
-                             {{ asset('uploads') . '/images/2022-05-09/banner_tk/wQ0xAzxw2gtMO7GXjsUXpSNFNH2CQppWPmdqlsjQ.jpg' }}
+                             {{ asset('images/banners/tk.jpg') }}
                              @endif"
                         >
                     </div>
