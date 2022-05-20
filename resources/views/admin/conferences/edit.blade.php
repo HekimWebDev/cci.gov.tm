@@ -89,7 +89,7 @@
                                 <div class="form-group">
                                     <label for="content">Содержание <small style="color: red">* теперь не обязательно</small></label>
                                     <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content"
-                                        rows="5" placeholder="Содержание" required>{{ $conferences->content }}</textarea>
+                                        rows="5" placeholder="Содержание">{{ $conferences->content }}</textarea>
                                 </div>
 
                                 <div class="form-group">
