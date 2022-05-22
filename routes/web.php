@@ -25,6 +25,7 @@ use App\Http\Controllers\AllController;
 use App\Http\Controllers\BizInfo\FoOffersController as FrontFoOffersController;
 use App\Http\Controllers\BizInfo\LocalBrandsController;
 use App\Http\Controllers\BizInfo\PartnersController as FrontPartnersController;
+use App\Http\Controllers\BizInfo\PositionController;
 use App\Http\Controllers\BizInfo\TendersController;
 use App\Http\Controllers\BizInfo\TmOffersController as FrontTmOffersController;
 use App\Http\Controllers\FormsController;
@@ -138,5 +139,6 @@ Route::group(['middleware' => 'set_locale'], (static function () {
         Route::get('/partners', FrontPartnersController::class)->name('partners');
         Route::get('/fo-offers', FrontFoOffersController::class)->name('fo-offers');
         Route::get('/tm-offers', FrontTmOffersController::class)->name('tm-offers');
+        Route::get('/position', PositionController::class)->name('position');
     });
 }));

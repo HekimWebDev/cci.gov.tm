@@ -157,6 +157,8 @@
                                     href="{{ route('biz-info.fo-offers') }}">@lang('home/home.header.navbar_li_a_fo-offers')</a>
                                 <a class="dropdown-item"
                                     href="{{ route('biz-info.local-brands') }}">@lang('main.brands')</a>
+                                <a class="dropdown-item"
+                                    href="{{ route('biz-info.position') }}">@lang('main.position')</a>
                             </div>
                         </li>
 
