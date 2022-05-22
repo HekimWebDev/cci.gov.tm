@@ -31,6 +31,7 @@ return [
     'album' => 'Galareýa',
     'conf' => 'Maslahatllar',
     'brands' => 'Ýerli markalar',
+    'position' => 'Bäsleşigiň tertibi',
     'contacts' => [
         'adress' => 'Salgysy',
         'loc' => 'Türkmenistan, Aşgabat şäheri, Çandybil köçesi, 143',

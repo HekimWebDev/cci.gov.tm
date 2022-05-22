@@ -31,6 +31,7 @@ return [
     'album' => 'Gallery',
     'conf' => 'Conferences',
     'brands' => 'Local brands',
+    'position' => 'Position',
     'contacts' => [
         'adress' => 'Address',
         'loc' => 'Turkmenistan, Ashgabat, Chandybil avenue, 143',
