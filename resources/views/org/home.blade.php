@@ -72,7 +72,7 @@
                                 <a href="{{ route('news_cci_single', $cci->slug) }}">
                                     <div><img src="{{ $cci->getImage() }}" class="scale img-fluid" alt=""></div>
                                     <p style="padding: 0" class="pt-2">{{ Str::words($cci->__('title'), 6, '...') }}</p>
-                                    <span>{{ $cci->updated_at }}</span>
+                                    <span>{{ $cci->updated_at->format('d.m.Y') }}</span>
                                 </a>
                             </div>
                         </div>
