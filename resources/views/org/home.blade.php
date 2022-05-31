@@ -96,8 +96,15 @@
                 <div class="carousel-inner m-auto">
                     @foreach ($banner as $k => $v)
                         <div class="carousel-item @if ($k==0) active @endif">
-                            <img class="d-block " height="330" width="100%"
-                                 src="{{ asset('uploads') . '/' . $v->__('thumbnail') }}">
+                            <a href="
+                            @if (app()->getLocale() === 'ru' || app()->getLocale() === null)
+                            {{ asset('assets/admin/docs/Arza_ru.docx')}}
+                            @elseif(app()->getLocale() === 'tk')
+                            {{ asset('assets/admin/docs/Arza_tm.docx')}}
+                            @endif">
+                                <img class="d-block " height="330" width="100%"
+                                     src="{{ asset('uploads') . '/' . $v->__('thumbnail') }}">
+                            </a>
                         </div>
                     @endforeach
                 </div>
@@ -177,32 +184,4 @@
             @endforeach
         </div>
     </section>
-
-    {{-- reklamny banner --}}
-    <section class="main-photo">
-        <div class="m-photo">
-            <div class="container ">
-                <div class="row"></div><!-- /.row -->
-            </div><!-- /.container -->
-        </div>
-    </section><!-- /.blocks -->
-    <div class="banner m-auto text-center">
-        <div class="wrapper m-auto">
-            <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
-                <div class="carousel-inner m-auto">
-                    <div class="carousel-item active">
-                        <img class="d-block " height="330" width="100%"
-                             src=" @if(app()->getLocale() === 'ru' || app()->getLocale() === null)
-                             {{ asset('images/banners/ru.jpg') }}
-                             @elseif(app()->getLocale() === 'en')
-                             {{ asset('images/banners/en.jpg') }}
-                             @else
-                             {{ asset('images/banners/tk.jpg') }}
-                             @endif"
-                        >
-                    </div>
-                </div>
-            </div><!-- /.container -->
-        </div>
-    </div><!-- /.banner -->
 @endsection
