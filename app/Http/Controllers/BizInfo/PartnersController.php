@@ -10,7 +10,7 @@ class PartnersController extends Controller
     public function __invoke()
     {
         $title = __('main.controllers.partners');
-        $partners = Partner::paginate(10);
+        $partners = Partner::orderByDesc('id')->paginate(10);
         return view('org.biz_info.partners', compact('partners', 'title'));
     }
 }
