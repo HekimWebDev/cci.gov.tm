@@ -1,6 +1,7 @@
 @extends('org.layouts.layout')
 
 @section('title', $title)
+
 @section('content')
 
     <section class="news1 m-auto">

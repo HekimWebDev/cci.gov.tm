@@ -1,5 +1,11 @@
 @extends('org.layouts.layout')
+
+@push('scripts')
+    <link rel="stylesheet" href="{{ asset('assets/lib/ekko-lightbox/ekko-lightbox.css') }}">
+@endpush
+
 @section('title', $title)
+
 @section('content')
     <section class="news1 m-auto">
         <nav aria-label="breadcrumb">
@@ -24,4 +30,17 @@
             @endforeach
         </div>
     </div>
+
+    @push('scripts')
+        <script src="{{ asset('assets/lib/ekko-lightbox/ekko-lightbox.js') }}"></script
+
+        {{-- ekko-lightbox --}}
+        <script>
+            $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                event.preventDefault();
+                $(this).ekkoLightbox();
+            });
+        </script>
+    @endpush
+
 @endsection

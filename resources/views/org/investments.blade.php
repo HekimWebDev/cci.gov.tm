@@ -1,6 +1,7 @@
 @extends('org.layouts.layout')
 
 @section('title', $title)
+
 @section('content')
     <section class="news1 m-auto">
         <div class="news-main1 m-auto">
@@ -71,5 +72,64 @@
             </div><!-- /.quest -->
         </div><!-- /.quest -->
     </section><!-- /.question -->
+
+    @push('scripts')
+        <script src="{{ asset('assets/lib/jquery-validation/jquery.validate.js') }}"></script>
+        <script src="{{ asset('assets/lib/jquery-validation/jquery.form.js') }}"></script>
+
+
+        {{-- Validation --}}
+        <script>
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': $('input[name="_token"]').val()
+                }
+            });
+
+            $("#my-form").validate({
+                rules: {
+                    email: {
+                        required: true,
+                        minlength: 3,
+                        maxlength: 255,
+                        email: true,
+                    },
+                    theme: {
+                        required: true,
+                        minlength: 3,
+                        maxlength: 255,
+                    },
+                    message: {
+                        minlength: 5,
+                        required: true,
+                    },
+                },
+                messages: {
+                    email: {
+                        required: "Это поле необходимо заполнить.",
+                        email: "Пожалуйста, введите корректный адрес электронной почты.",
+                        maxlength: $.validator.format("Пожалуйста, введите не больше {0} символов."),
+                    },
+                    theme: {
+                        required: "Это поле необходимо заполнить.",
+                        minlength: $.validator.format("Пожалуйста, введите не меньше {0} символов."),
+                        maxlength: $.validator.format("Пожалуйста, введите не больше {0} символов."),
+                    },
+                    message: {
+                        required: "Это поле необходимо заполнить.",
+                        minlength: $.validator.format("Пожалуйста, введите не меньше {0} символов."),
+                    },
+                },
+                validClass: "is-valid",
+                // errorElement: "div",
+                errorClass: "is-invalid text-danger",
+                submitHandler: function(form) {
+                    alert('Ваша собшение успешно сохранился');
+                    $(form).ajaxSubmit();
+                    $(form).clearForm();
+                }
+            });
+        </script>
+    @endpush
 
 @endsection
