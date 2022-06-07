@@ -14,20 +14,20 @@ class TenderController extends Controller
     {
         $tenders = Tender::orderByDesc('id')->paginate(10);
 
-        return view('admin.tenders.index', compact('tenders'));
+        return view('admin.biz_info.tenders.index', compact('tenders'));
     }
 
 
     public function show($id){
         $tender = Tender::find($id);
 
-        return view('admin.tenders.single', compact('tender'));
+        return view('admin.biz_info.tenders.single', compact('tender'));
     }
 
 
     public function create()
     {
-        return view('admin.tenders.create');
+        return view('admin.biz_info.tenders.create');
     }
 
 
@@ -63,7 +63,7 @@ class TenderController extends Controller
     {
         $tender = Tender::find($id);
 
-        return view('admin.tenders.edit', compact('tender'));
+        return view('admin.biz_info.tenders.edit', compact('tender'));
     }
 
 

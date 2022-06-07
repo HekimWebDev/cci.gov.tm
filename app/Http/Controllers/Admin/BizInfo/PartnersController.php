@@ -14,20 +14,20 @@ class PartnersController extends Controller
     {
         $partners = Partner::orderByDesc('id')->paginate(10);
 
-        return view('admin.partners.index', compact('partners'));
+        return view('admin.biz_info.partners.index', compact('partners'));
     }
 
 
     public function show($id){
         $partner = partner::find($id);
 
-        return view('admin.partners.single', compact('partner'));
+        return view('admin.biz_info.partners.single', compact('partner'));
     }
 
 
     public function create()
     {
-        return view('admin.partners.create');
+        return view('admin.biz_info.partners.create');
     }
 
 
@@ -64,7 +64,7 @@ class PartnersController extends Controller
     {
         $partner = partner::find($id);
 
-        return view('admin.partners.edit', compact('partner'));
+        return view('admin.biz_info.partners.edit', compact('partner'));
     }
 
 

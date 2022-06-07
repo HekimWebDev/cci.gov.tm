@@ -1,7 +1,11 @@
 @extends('admin.layouts.layout')
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('assets/lib/daterangepicker-master/daterangepicker.css') }}">
+@endpush
+
 @section('content')
-<!-- Content Header (Page header) -->
+
 <section class="content-header">
     <div class="container-fluid">
         {{ Breadcrumbs::render('fo_exhibitionsCreate') }}
@@ -98,15 +102,73 @@
                             <button type="submit" class="btn btn-primary">Сохранить</button>
                         </div>
                     </form>
-
                 </div>
-                <!-- /.card -->
-
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
-    </div><!-- /.container-fluid -->
+    </div>
 </section>
-<!-- /.content -->
+
+    @push('scripts')
+        {{-- daterangepicker --}}
+        <script src="{{ asset('assets/lib/daterangepicker/moment.min.js') }}"></script>
+        <script src="{{ asset('assets/lib/daterangepicker-master/daterangepicker.js') }}"></script>
+
+        <script type="text/javascript">
+            $(function () {
+                $('input[id="date"]').daterangepicker({
+                    autoUpdateInput: false,
+                    // locale: {
+                    //     cancelLabel: 'Clear'
+                    // }
+                    "locale": {
+                        "format": "MM.DD.YYYY",
+                        "separator": " - ",
+                        "applyLabel": "Ок",
+                        "cancelLabel": "Отмена",
+                        "fromLabel": "От",
+                        "toLabel": "До",
+                        "customRangeLabel": "Произвольный",
+                        "daysOfWeek": [
+                            "Вс",
+                            "Пн",
+                            "Вт",
+                            "Ср",
+                            "Чт",
+                            "Пт",
+                            "Сб"
+                        ],
+                        "monthNames": [
+                            "Январь",
+                            "Февраль",
+                            "Март",
+                            "Апрель",
+                            "Май",
+                            "Июнь",
+                            "Июль",
+                            "Август",
+                            "Сентябрь",
+                            "Октябрь",
+                            "Ноябрь",
+                            "Декабрь"
+                        ],
+                        firstDay: 1
+                    }
+                });
+                $('input[id="date"]').on('apply.daterangepicker', function (ev, picker) {
+                    $(this).val(picker.startDate.format('DD.MM.YYYY') + ' - ' + picker.endDate.format(
+                        'DD.MM.YYYY'));
+                });
+                $('input[id="date"]').on('cancel.daterangepicker', function (ev, picker) {
+                    $(this).val('');
+                });
+            });
+        </script>
+
+        <script>
+            $('#datemask').inputmask('dd.mm.yyyy', {
+                'placeholder': 'dd.mm.yyyy'
+            });
+            $('[data-mask]').inputmask()
+        </script>
+    @endpush
 @endsection
