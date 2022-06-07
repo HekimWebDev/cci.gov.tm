@@ -1,4 +1,10 @@
 @extends('org.layouts.layout')
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('assets/lib/owlcarousel/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/lib/owlcarousel/assets/owl.theme.default.min.css') }}">
+@endpush
+
 @section('title', $title)
 
 @section('content')
@@ -184,4 +190,41 @@
             @endforeach
         </div>
     </section>
+
+    @push('scripts')
+        <script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+
+        {{-- carousel gallery --}}
+        <script>
+            $(function() {
+                if ($('.owl-2').length > 0) {
+                    $('.owl-2').owlCarousel({
+                        center: true,
+                        items: 1,
+                        loop: true,
+                        stagePadding: 0,
+                        margin: 5,
+                        smartSpeed: 1000,
+                        autoplay: true,
+                        nav: true,
+                        dots: true,
+                        pauseOnHover: false,
+                        responsive: {
+                            600: {
+                                margin: 5,
+                                nav: true,
+                                items: 2
+                            },
+                            1000: {
+                                margin: 5,
+                                stagePadding: 0,
+                                nav: true,
+                                items: 5
+                            }
+                        }
+                    });
+                }
+            })
+        </script>
+    @endpush
 @endsection

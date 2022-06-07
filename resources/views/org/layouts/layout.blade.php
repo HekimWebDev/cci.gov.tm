@@ -14,15 +14,15 @@
     <link rel="stylesheet" href="{{ asset('assets/front/css/style1.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/lib/bootstrap-4.6/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/lib/fontawesome-free/css/all.min.css') }}">
-    <!-- <link rel="stylesheet" type="text/css" href="slick/slick.css" /><link rel="stylesheet" type="text/css" href="slick/slick-theme.css" /> -->
-    <link rel="stylesheet" href="{{ asset('assets/lib/owlcarousel/assets/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/lib/owlcarousel/assets/owl.theme.default.min.css') }}">
+
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('assets/front/css/ckeditor-style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/lib/ekko-lightbox/ekko-lightbox.css') }}">
+
     <title>@yield('title')</title>
-    {{-- <script src="//code.jivosite.com/widget/A1kOdRiXYs" async></script> --}}
+
     <script src="//code-ya.jivosite.com/widget/48kN4sKNpf" async></script>
+
+    @stack('styles')
 
     <style>
         .breadcrumb-dot .breadcrumb-item+.breadcrumb-item::before {
@@ -291,269 +291,24 @@
     </div>
 
     <script src="{{ asset('assets/lib/jquery/jquery-3.3.1.min.js') }}"></script>
-    <!-- <script src="slick/slick.min.js"></script> -->
-    <script src="{{ asset('assets/lib/bootstrap/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/front/js/main1.js') }}"></script>
-    <script src="{{ asset('assets/lib/readmore.js') }}"></script>
-    <script src="{{ asset('assets/lib/jquery-validation/jquery.validate.js') }}"></script>
-    <script src="{{ asset('assets/lib/jquery-validation/jquery.form.js') }}"></script>
 
-    <script src="{{ asset('assets/lib/ekko-lightbox/ekko-lightbox.js') }}"></script>
-    {{-- ekko-lightbox --}}
+    <script src="{{ asset('assets/lib/bootstrap/js/bootstrap.js') }}"></script>
+
+    <script src="{{ asset('assets/front/js/main1.js') }}"></script>
+
+
+    @stack('scripts')
+
+
+{{--     ekko-lightbox --}}
     <script>
         $(document).on('click', '[data-toggle="lightbox"]', function(event) {
             event.preventDefault();
             $(this).ekkoLightbox();
         });
     </script>
-    {{-- <script>
-        $(this).ekkoLightbox({
-            alwaysShowClose: true,
-            onShown: function() {
-                console.log('Checking our the events huh?');
-            },
-            onNavigate: function(direction, itemIndex)
-            console.log(lowOrHi);
-        }
-        });
-    </script> --}}
-
-    {{-- Validation --}}
-    <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-Token': $('input[name="_token"]').val()
-            }
-        });
-
-        $("#my-form").validate({
-            rules: {
-                email: {
-                    required: true,
-                    minlength: 3,
-                    maxlength: 255,
-                    email: true,
-                },
-                theme: {
-                    required: true,
-                    minlength: 3,
-                    maxlength: 255,
-                },
-                message: {
-                    minlength: 5,
-                    required: true,
-                },
-            },
-            messages: {
-                email: {
-                    required: "Это поле необходимо заполнить.",
-                    email: "Пожалуйста, введите корректный адрес электронной почты.",
-                    maxlength: $.validator.format("Пожалуйста, введите не больше {0} символов."),
-                },
-                theme: {
-                    required: "Это поле необходимо заполнить.",
-                    minlength: $.validator.format("Пожалуйста, введите не меньше {0} символов."),
-                    maxlength: $.validator.format("Пожалуйста, введите не больше {0} символов."),
-                },
-                message: {
-                    required: "Это поле необходимо заполнить.",
-                    minlength: $.validator.format("Пожалуйста, введите не меньше {0} символов."),
-                },
-            },
-            validClass: "is-valid",
-            // errorElement: "div",
-            errorClass: "is-invalid text-danger",
-            submitHandler: function(form) {
-                alert('Ваша собшение успешно сохранился');
-                $(form).ajaxSubmit();
-                $(form).clearForm();
-            }
-        });
-    </script>
-
-    {{-- carousel gallery --}}
-    <script>
-        $(function() {
-            if ($('.owl-2').length > 0) {
-                $('.owl-2').owlCarousel({
-                    center: true,
-                    items: 1,
-                    loop: true,
-                    stagePadding: 0,
-                    margin: 5,
-                    smartSpeed: 1000,
-                    autoplay: true,
-                    nav: true,
-                    dots: true,
-                    pauseOnHover: false,
-                    responsive: {
-                        600: {
-                            margin: 5,
-                            nav: true,
-                            items: 2
-                        },
-                        1000: {
-                            margin: 5,
-                            stagePadding: 0,
-                            nav: true,
-                            items: 5
-                        }
-                    }
-                });
-            }
-        })
-    </script>
-    {{-- readmore js --}}
-
-    <script>
-/**
- *  Read More JS
- *  truncates text via specfied character length with more/less actions.
- *  Maintains original format of pre truncated text.
- *  @author stephen scaff
- *  @todo   Add destroy method for ajaxed content support.
- *
- */
- const ReadMore = (() => {
-   let s;
-
-   return {
-
-     settings() {
-       return {
-         content: document.querySelectorAll('.js-read-more'),
-         originalContentArr: [],
-         truncatedContentArr: [],
-         moreLink: "@lang('main.read_more')",
-         lessLink: "@lang('main.read_more_close')",
-       }
-     },
-
-     init() {
-       s = this.settings();
-       this.bindEvents();
-     },
-
-     bindEvents() {
-       ReadMore.truncateText();
-     },
-
-     /**
-      * Count Words
-      * Helper to handle word count.
-      * @param {string} str - Target content string.
-      */
-     countWords(str) {
-       return str.split(/\s+/).length;
-     },
-
-     /**
-      * Ellpise Content
-      * @param {string} str - content string.
-      * @param {number} wordsNum - Number of words to show before truncation.
-      */
-     ellipseContent(str, wordsNum) {
-       return str.split(/\s+/).slice(0, wordsNum).join(' ') + '...';
-     },
-
-     /**
-      * Truncate Text
-      * Truncate and ellipses contented content
-      * based on specified word count.
-      * Calls createLink() and handleClick() methods.
-      */
-     truncateText() {
-
-       for (let i = 0; i < s.content.length; i++) {
-         //console.log(s.content)
-         const originalContent = s.content[i].innerHTML;
-         const numberOfWords = s.content[i].dataset.rmWords;
-         const truncateContent = ReadMore.ellipseContent(originalContent, numberOfWords);
-         const originalContentWords = ReadMore.countWords(originalContent);
-
-         s.originalContentArr.push(originalContent);
-         s.truncatedContentArr.push(truncateContent);
-
-         if (numberOfWords < originalContentWords) {
-           s.content[i].innerHTML = s.truncatedContentArr[i];
-           let self = i;
-           ReadMore.createLink(self)
-         }
-       }
-       ReadMore.handleClick(s.content);
-     },
-
-     /**
-      * Create Link
-      * Creates and Inserts Read More Link
-      * @param {number} index - index reference of looped item
-      */
-     createLink(index) {
-       const linkWrap = document.createElement('span');
-
-       linkWrap.className = 'read-more__link-wrap';
-
-       linkWrap.innerHTML = `<a id="read-more_${index}"
-                                class="read-more__link"
-                                style="cursor:pointer;">
-                                ${s.moreLink}
-                            </a>`;
-
-       // Inset created link
-       s.content[index].parentNode.insertBefore(linkWrap, s.content[index].nextSibling);
-
-     },
-
-     /**
-      * Handle Click
-      * Toggle Click eve
-      */
-     handleClick(el) {
-       const readMoreLink = document.querySelectorAll('.read-more__link');
-
-       for (let j = 0, l = readMoreLink.length; j < l; j++) {
-
-         readMoreLink[j].addEventListener('click', function() {
-
-           const moreLinkID = this.getAttribute('id');
-           let index = moreLinkID.split('_')[1];
-
-           el[index].classList.toggle('is-expanded');
-
-           if (this.dataset.clicked !== 'true') {
-              el[index].innerHTML = s.originalContentArr[index];
-              this.innerHTML = s.lessLink;
-              this.dataset.clicked = true;
-           } else {
-             el[index].innerHTML = s.truncatedContentArr[index];
-             this.innerHTML = s.moreLink;
-             this.dataset.clicked = false;
-           }
-         });
-       }
-     },
-
-     /**
-      * Open All
-      * Method to expand all instances on the page.
-      * Will probably be useful with a destroy method.
-      */
-     openAll() {
-       const instances = document.querySelectorAll('.read-more__link');
-         for (let i = 0; i < instances.length; i++) {
-           content[i].innerHTML = s.truncatedContentArr[i];
-           instances[i].innerHTML = s.moreLink;
-         }
-       }
-     }
- })();
 
 
-//export default ReadMore;
-
-ReadMore.init();
-    </script>
 </body>
 
 </html>
