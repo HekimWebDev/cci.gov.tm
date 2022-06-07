@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
-            <h6>{{ Breadcrumbs::render('tenderCreate') }}</h6>
+            {{ Breadcrumbs::render('fo_offerCreate') }}
         </div><!-- /.container-fluid -->
     </section>
 
@@ -15,45 +15,50 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5>Создать тендер</h5>
+                            <h5>Создание предложении</h5>
                         </div>
                         <!-- /.card-header -->
 
-                        <form role="form" method="post" action="{{ route('admin.biz-info.tenders.store') }}">
+                        <form role="form" method="post" action="{{ route('admin.biz-info.fo_offers.store') }}"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
-
                                 <div class="form-group">
-                                    <label for="title">Заголовок (русский)*</label>
-                                    <input type="text" name="title"
-                                        class="form-control @error('title') is-invalid @enderror" id="title"
-                                        placeholder="Имя" value="{{ old('title') }}">
+                                    <label for="number">Номер предложения*</label>
+                                    <input type="number" class="form-control @error('number') is-invalid @enderror"
+                                        name="number" id="number" value="{{ old('number') }}" placeholder="Номер предложения">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="title_tk">Заголовок (türkmen)</label>
-                                    <input type="text" name="title_tk"
-                                        class="form-control @error('title_tk') is-invalid @enderror" id="title_tk"
-                                        placeholder="türkmen" value="{{ old('title_tk') }}">
+                                    <label for="name">Имя*</label>
+                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                                        id="name" placeholder="Имя" value="{{ old('name') }}" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="title_en">Заголовок (english)</label>
-                                    <input type="text" name="title_en"
-                                        class="form-control @error('title_en') is-invalid @enderror" id="title_en"
-                                        placeholder="english" value="{{ old('title_en') }}">
+                                    <label for="name_en">Имя (english)</label>
+                                    <input type="text" name="name_en"
+                                        class="form-control @error('name_en') is-invalid @enderror" id="name_en"
+                                        placeholder="Имя (english)" value="{{ old('name_en') }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="desc">Описание (русский)*</label>
-                                    <textarea class="form-control @error('desc') is-invalid @enderror" name="desc" id="desc"
-                                        rows="5" id="desc" placeholder="Описание">{{ old('desc') }}</textarea>
+                                    <label for="name_tk">Имя (türkmen)</label>
+                                    <input type="text" name="name_tk"
+                                        class="form-control @error('name_tk') is-invalid @enderror" id="name_tk"
+                                        placeholder="Имя (türkmen)" value="{{ old('name_tk') }}">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="desc_tk">Описание (türkmen)</label>
                                     <textarea class="form-control @error('desc_tk') is-invalid @enderror" name="desc_tk"
                                         id="desc_tk" rows="5" placeholder="türkmen">{{ old('desc_tk') }}</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="desc">Описание (русский)*</label>
+                                    <textarea class="form-control @error('desc') is-invalid @enderror" name="desc" id="desc"
+                                        rows="5" id="desc" placeholder="Описание">{{ old('desc') }}</textarea>
                                 </div>
 
                                 <div class="form-group">
@@ -76,29 +81,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="adress">Адрес (русский)</label>
-                                    <input type="text" name="adress"
-                                        class="form-control @error('adress') is-invalid @enderror" id="adress"
-                                        placeholder="Адрес" value="{{ old('adress') }}">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="adress_tk">Адрес (türkmen)</label>
-                                    <input type="text" name="adress_tk"
-                                        class="form-control @error('adress_tk') is-invalid @enderror" id="adress_tk"
-                                        placeholder="Адрес" value="{{ old('adress_tk') }}">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="adress_en">Адрес (english)</label>
-                                    <input type="text" name="adress_en"
-                                        class="form-control @error('adress_en') is-invalid @enderror" id="adress_en"
-                                        placeholder="Адрес" value="{{ old('adress_en') }}">
-                                </div>
-
-                                <div class="form-group">
                                     <label for="email">Электронное почта</label>
-                                    <input type="email" class="form-control @error('adress') is-invalid @enderror"
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror"
                                         name="email" id="email" value="{{ old('email') }}"
                                         placeholder="Электронное почта">
                                 </div>
@@ -110,32 +94,43 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="organizer">Организатор (русский)</label>
-                                    <input type="text" name="organizer"
-                                        class="form-control @error('organizer') is-invalid @enderror" id="organizer"
-                                        placeholder="Организатор" value="{{ old('organizer') }}">
+                                    <label for="adress">Адрес</label>
+                                    <input type="text" name="adress"
+                                        class="form-control @error('adress') is-invalid @enderror" id="adress"
+                                        placeholder="Адрес" value="{{ old('adress') }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="organizer_tk">Организатор (türkmen)</label>
-                                    <input type="text" name="organizer_tk"
-                                        class="form-control @error('organizer_tk') is-invalid @enderror" id="organizer_tk"
-                                        placeholder="Организатор" value="{{ old('organizer_tk') }}">
+                                    <label for="adress_en">Адрес (english)</label>
+                                    <input type="text" name="adress_en"
+                                        class="form-control @error('adress_en') is-invalid @enderror" id="adress_en"
+                                        placeholder="Адрес" value="{{ old('adress_en') }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="organizer_en">Организатор (english)</label>
-                                    <input type="text" name="organizer_en"
-                                        class="form-control @error('organizer_en') is-invalid @enderror" id="organizer_en"
-                                        placeholder="Организатор" value="{{ old('organizer_en') }}">
+                                    <label for="adress_tk">Адрес (türkmen)</label>
+                                    <input type="text" name="adress_tk"
+                                        class="form-control @error('adress_tk') is-invalid @enderror" id="adress_tk"
+                                        placeholder="Адрес" value="{{ old('adress_tk') }}">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="datesingle">Дата</label>
-                                    <input type="date" name="datesingle"
+                                    <input type="text" name="datesingle"
                                         class="form-control @error('datesingle') is-invalid @enderror" id="datesingle"
-                                        placeholder="Дата" value="{{ old('datesingle') }}">
+                                        placeholder="Адрес" value="{{ old('datesingle') }}">
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="thumbnail">Изображение</label>
+                                    <div class="custom-file">
+                                        <input type="file" name="thumbnail" id="thumbnail" class="custom-file-input">
+                                        <label class="custom-file-label @error('thumbnail') is-invalid @enderror"
+                                            for="thumbnail">Выберите изображение</label>
+                                    </div>
+                                </div>
+                                <img class="img-thumbnail m-1" id="img-preview" width="300" src="" /><br>
+
                             </div>
                             <!-- /.card-body -->
 
@@ -155,4 +150,12 @@
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+
+    @push('scripts')
+        {{-- ckeditor --}}
+        <script src="{{ asset('assets/admin/ckeditor5/build/ckeditor.js') }}"></script>
+        <script src="{{ asset('assets/admin/ckfinder/ckfinder.js') }}"></script>
+
+        <script src="{{ asset('assets/admin/js/ckfinder-desc.js') }}"></script>
+    @endpush
 @endsection

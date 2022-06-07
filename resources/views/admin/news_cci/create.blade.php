@@ -102,5 +102,13 @@
         </div><!-- /.container-fluid -->
     </section>
 
+    @push('scripts')
+        {{-- ckeditor --}}
+        <script src="{{ asset('assets/admin/ckeditor5/build/ckeditor.js') }}"></script>
+        <script src="{{ asset('assets/admin/ckfinder/ckfinder.js') }}"></script>
+
+        <script src="{{ asset('assets/admin/js/ckfinder-desc.js') }}"></script>
+    @endpush
+
     <!-- /.content -->
 @endsection

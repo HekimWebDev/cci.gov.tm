@@ -14,13 +14,13 @@ class FoOffersController extends Controller
     {
         $fo_offers = Fooffer::orderByDesc('id')->paginate(10);
 
-        return view('admin.fo_offers.index', compact('fo_offers'));
+        return view('admin.biz_info.fo_offers.index', compact('fo_offers'));
     }
 
 
     public function create()
     {
-        return view('admin.fo_offers.create');
+        return view('admin.biz_info.fo_offers.create');
     }
 
 
@@ -57,7 +57,7 @@ class FoOffersController extends Controller
 
     public function edit(Fooffer $fo_offer)
     {
-        return view('admin.fo_offers.edit', compact('fo_offer'));
+        return view('admin.biz_info.fo_offers.edit', compact('fo_offer'));
     }
 
 

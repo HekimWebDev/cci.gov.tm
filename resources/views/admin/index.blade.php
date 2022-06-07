@@ -31,36 +31,6 @@
                                     <p class="float-right">{{ $user->email }}</p>
                                 </div>
                             </div>
-                            <ul class="list-group list-group-unbordered mb-3">
-                                <li class="list-group-item"><a href="{{ route('news.index') }}">Новости</a></li>
-                                <li class="list-group-item"><a href="{{ route('galleries.index') }}">Галерея</a></li>
-                                <li class="list-group-item"><a href="{{ route('carousels.index') }}">Каруселные
-                                        баннеры</a></li>
-                                <li class="list-group-item"><a href="{{ route('banners.index') }}">Баннеры</a></li>
-                                <li class="list-group-item"><a href="{{ route('admin.biz-info.tenders.index') }}">Тендеры</a></li>
-                                <li class="list-group-item"><a href="{{ route('admin.biz-info.partners.index') }}">Партнеры</a></li>
-                                <li class="list-group-item"><a href="{{ route('admin.biz-info.tm_offers.index') }}">Коммерческие
-                                        предложения производителей Туркменистана</a></li>
-                                <li class="list-group-item"><a href="{{ route('admin.biz-info.fo_offers.index') }}">Коммерческие
-                                        предложения зарубежных партнеров</a></li>
-                                <li class="list-group-item"><a href="{{ route('form.index') }}">Анкета соискателя</a>
-                                </li>
-                                <li class="list-group-item"><a href="{{ route('exhibition.tm_exhibitions.index') }}">Выставки в
-                                        Туркменистане</a></li>
-                                <li class="list-group-item"><a href="{{ route('exhibition.fo_exhibitions.index') }}">Выставки
-                                        зарубежом</a></li>
-                                <li class="list-group-item"><a href="{{ route('branches.index') }}">Предприятие</a></li>
-                                <li class="list-group-item"><a href="{{ route('informations.index') }}">Информация</a>
-                                </li>
-                                <li class="list-group-item"><a href="{{ route('abouts.index') }}">Страницы "о нас"</a>
-                                </li>
-                                <li class="list-group-item"><a href="{{ route('memberships.index') }}">Страницы "о
-                                        членстве"</a></li>
-                                <li class="list-group-item"><a href="{{ route('memberships.index') }}">Страницы
-                                        "Инвестиции"</a></li>
-                                <li class="list-group-item"><a href="{{ route('conferences.index') }}">Страницы
-                                        "Конференции"</a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -229,17 +199,88 @@
                                     </table>
                                 </div>
                             </div>
-                            <!-- /.tab-pane -->
                         </div>
-                        <!-- /.tab-content -->
-                    </div><!-- /.card-body -->
+                    </div>
                 </div>
-                <!-- /.nav-tabs-custom -->
             </div>
-            <!-- /.col -->
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
-    <!-- /.content -->
+
+    @push('scripts')
+        <script src="{{ asset('assets/lib/jquery-validation/jquery.validate.js') }}"></script>
+        <script src="{{ asset('assets/lib/jquery-validation/jquery.form.js') }}"></script>
+        <script src="{{ asset('assets/lib/jquery-validation/jquery-validation-bootstrap-tooltip.js') }}"></script>
+        {{-- validation --}}
+        <script>
+            function resetForm() {
+                document.getElementById("my-form").reset();
+            }
+
+            $("#my-form").validate({
+                rules: {
+                    current_password: {
+                        required: true,
+                        minlength: 8,
+                        maxlength: 255,
+                    },
+                    password: {
+                        required: true,
+                        minlength: 8,
+                        maxlength: 255,
+                    },
+                    password_confirmation: {
+                        required: true,
+                        equalTo: "#password1",
+                    },
+                },
+                messages: {
+                    current_password: {
+                        required: "Это поле необходимо заполнить.",
+                        minlength: $.validator.format("Пожалуйста, введите не меньше {0} символов."),
+                        maxlength: $.validator.format("Пожалуйста, введите не больше {0} символов."),
+                        // remote: 'Пароль не софьпадает',
+                    },
+                    password: {
+                        required: "Это поле необходимо заполнить.",
+                        minlength: $.validator.format("Пожалуйста, введите не меньше {0} символов."),
+                        maxlength: $.validator.format("Пожалуйста, введите не больше {0} символов."),
+                    },
+                    password_confirmation: {
+                        required: "Это поле необходимо заполнить.",
+                        equalTo: "Пожалуйста, введите повторный парол правилно.",
+                    },
+                },
+                tooltip_options: {
+                    current_password: {
+                        placement: 'left',
+                    },
+                    password: {
+                        placement: 'left',
+                    },
+                    password_confirmation: {
+                        placement: 'left',
+                    }
+                },
+                validClass: "is-valid",
+                // errorElement: "div",
+                errorClass: "is-invalid text-danger",
+            });
+        </script>
+
+        {{-- Password view --}}
+        <script>
+            $('body').on('click', '.password-checkbox', function () {
+                if ($(this).is(':checked')) {
+                    $('#current_password').attr('type', 'text');
+                    $('#password1').attr('type', 'text');
+                    $('#password_confirmation').attr('type', 'text');
+                } else {
+                    $('#current_password').attr('type', 'password');
+                    $('#password1').attr('type', 'password');
+                    $('#password_confirmation').attr('type', 'password');
+                }
+            });
+        </script>
+
+    @endpush
 @endsection

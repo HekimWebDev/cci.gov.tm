@@ -61,19 +61,16 @@
                                     <textarea class="form-control @error('desc') is-invalid @enderror" name="desc" id="desc"
                                         rows="5" id="desc" placeholder="Описание">{{ old('desc') }}</textarea>
                                 </div>
-
                                 <div class="form-group">
                                     <label for="desc_tk">Описание (türkmen)</label>
                                     <textarea class="form-control @error('desc_tk') is-invalid @enderror" name="desc_tk"
                                         id="desc_tk" rows="5" placeholder="türkmen">{{ old('desc_tk') }}</textarea>
                                 </div>
-
                                 <div class="form-group">
                                     <label for="desc_en">Описание (english)</label>
                                     <textarea class="form-control @error('desc_en') is-invalid @enderror" name="desc_en"
                                         id="desc_en" rows="5" placeholder="english">{{ old('desc_en') }}</textarea>
                                 </div>
-
                                 <div class="form-group">
                                     <label for="updated_at">Дата добавление*</label>
                                     <input type="text" name="updated_at"
@@ -81,26 +78,26 @@
                                            placeholder="Дата добавление" value="{{old('updated_at')}}" data-mask
                                            data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy.mm.dd">
                                 </div>
-
                             </div>
-
-                            <!-- /.card-body -->
 
                             <div class="card-footer">
                                 <a href="{{ url()->previous() }}" class="btn btn-danger mr-1">Отменить</a>
                                 <button type="submit" class="btn btn-primary">Сохранить</button>
                             </div>
                         </form>
-
                     </div>
-                    <!-- /.card -->
-
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
+
+    @push('scripts')
+        {{-- ckeditor --}}
+        <script src="{{ asset('assets/admin/ckeditor5/build/ckeditor.js') }}"></script>
+        <script src="{{ asset('assets/admin/ckfinder/ckfinder.js') }}"></script>
+
+        <script src="{{ asset('assets/admin/js/ckfinder-desc.js') }}"></script>
+    @endpush
 
     <!-- /.content -->
 @endsection

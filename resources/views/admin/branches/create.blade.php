@@ -128,15 +128,18 @@
                             <button type="submit" class="btn btn-primary">Сохранить</button>
                         </div>
                     </form>
-
                 </div>
-                <!-- /.card -->
-
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
-    </div><!-- /.container-fluid -->
+    </div>
 </section>
-<!-- /.content -->
+
+@push('scripts')
+    {{-- ckeditor --}}
+    <script src="{{ asset('assets/admin/ckeditor5/build/ckeditor.js') }}"></script>
+    <script src="{{ asset('assets/admin/ckfinder/ckfinder.js') }}"></script>
+
+    <script src="{{ asset('assets/admin/js/ckfinder-desc.js') }}"></script>
+@endpush
+
 @endsection

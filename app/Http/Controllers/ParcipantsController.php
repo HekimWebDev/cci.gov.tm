@@ -15,6 +15,7 @@ class ParcipantsController extends Controller
         return view('admin.parcipants.index', compact('parcipants'));
     }
 
+
     public function single()
     {
         $parcipants = Parcipants::get();
@@ -23,10 +24,12 @@ class ParcipantsController extends Controller
     }
 
 
+
     public function create()
     {
         return view('admin.parcipants.create');
     }
+
 
 
     public function store(Request $request): RedirectResponse
@@ -45,10 +48,13 @@ class ParcipantsController extends Controller
     }
 
 
-    public function edit(Parcipants $parcipants)
+
+    public function edit($id)
     {
+        $parcipants = Parcipants::findOrFail($id);
         return view('admin.parcipants.edit', compact('parcipants'));
     }
+
 
 
     public function update(Request $request, Parcipants $parcipants): RedirectResponse
@@ -65,6 +71,7 @@ class ParcipantsController extends Controller
 
         return redirect()->route('exhibition.parcipants_events.index')->with('success', 'Текст успещно изменен');
     }
+
 
 
     public function destroy(Parcipants $parcipants): RedirectResponse
