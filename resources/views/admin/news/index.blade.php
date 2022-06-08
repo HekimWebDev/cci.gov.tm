@@ -53,7 +53,7 @@
                                         </td>
                                         <td>{{ $n->title }}</td>
                                         <td>{!! Str::words($n->desc, 10, '...')  !!}</td>
-                                        <td>{{ $n->updated_at }}</td>
+                                        <td>{{ $n->date }}</td>
                                         <td><img src="{{ $n->getImage() }}" class="img-fluid img-thumnail"
                                                 width="130" alt=""></td>
                                     </tr>

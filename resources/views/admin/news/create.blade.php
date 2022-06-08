@@ -22,25 +22,135 @@
                         <form role="form" method="post" action="{{ route('news.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label for="title">Заголовок (русский)*</label>
-                                    <input type="text" name="title"
-                                        class="form-control @error('title') is-invalid @enderror" id="title"
-                                        placeholder="Имя" value="{{ old('title') }}" required>
+                                {{-- Title --}}
+                                <div class="form-group mb-5">
+                                    <label for="name">
+                                        Name
+                                        <span class="required text-danger">*</span>
+                                    </label>
+
+                                    <div class="card-header p-2 mb-1">
+                                        <ul class="nav nav-pills">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#ru" data-toggle="tab">Русский</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#tk" data-toggle="tab">Türkmen</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link " href="#en" data-toggle="tab">English</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-content">
+                                        {{-- Ru --}}
+                                        <div class="active tab-pane" id="ru">
+                                            <input type="text" id="title" name="title"
+                                                   class="form-control @error('title') is-invalid @enderror"
+                                                   value="{{ old('title') }}">
+
+                                            @error('title')
+                                            <span style="display: none" class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        {{-- Tk --}}
+                                        <div class="tab-pane" id="tk">
+                                            <input type="text" id="title_tk" name="title_tk"
+                                                   class="form-control @error('title_tk') is-invalid @enderror"
+                                                   value="{{ old('title_tk') }}">
+
+                                            @error('title_tk')
+                                            <span style="display: none" class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                        {{-- En --}}
+                                        <div class="tab-pane" id="en">
+                                            <input type="text" id="title_en" name="title_en"
+                                                   class="form-control @error('title_en') is-invalid @enderror"
+                                                   value="{{ old('title_en') }}">
+
+                                            @error('title_en')
+                                            <span style="display: none" class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
 
+                                {{-- Desc --}}
                                 <div class="form-group">
-                                    <label for="title_tk">Заголовок (türkmen)</label>
-                                    <input type="text" name="title_tk"
-                                        class="form-control @error('title_tk') is-invalid @enderror" id="title_tk"
-                                        placeholder="türkmen" value="{{ old('title_tk') }}">
-                                </div>
+                                    <div>
+                                        <label for="description">
+                                            Description
+                                            <span class="required text-danger">*</span>
+                                        </label>
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="title_en">Заголовок (english)</label>
-                                    <input type="text" name="title_en"
-                                        class="form-control @error('title_en') is-invalid @enderror" id="title_en"
-                                        placeholder="english" value="{{ old('title_en') }}">
+                                    <div class="card-header p-2 mb-1">
+                                        <ul class="nav nav-pills">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#ruu" data-toggle="tab">Русский</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#tkk" data-toggle="tab">Türkmen</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#enn" data-toggle="tab">English</a>
+                                            </li>
+                                        </ul>
+                                    </div><!-- /.card-header -->
+                                    <div class="lang-group">
+                                        <div class="tab-content">
+                                            {{-- Ru --}}
+                                            <div class="active tab-pane" id="ruu">
+                                                <textarea id="desc" name="desc"
+                                                          class="ckeditor form-control @error('desc') is-invalid @enderror">
+                                                    {{ old('desc') }}
+                                                </textarea>
+
+                                                @error('desc')
+                                                <span style="display: none" class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+
+                                            {{-- Tk --}}
+                                            <div class="tab-pane" id="tkk">
+                                                <textarea id="desc_tk" name="desc_tk"
+                                                          class="ckeditor form-control @error('desc_tk') is-invalid @enderror">
+                                                    {{ old('desc_tk') }}
+                                                </textarea>
+
+                                                @error('desc_tk')
+                                                <span style="display: none" class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+
+                                            {{-- En --}}
+                                            <div class="tab-pane" id="enn">
+                                                <textarea id="desc_en" name="desc_en"
+                                                          class="ckeditor form-control @error('desc_en') is-invalid @enderror">
+                                                    {{ old('desc_en') }}
+                                                </textarea>
+
+                                                @error('desc_en')
+                                                <span style="display: none" class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -57,25 +167,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="desc">Описание (русский)*</label>
-                                    <textarea class="form-control @error('desc') is-invalid @enderror" name="desc" id="desc"
-                                        rows="5" id="desc" placeholder="Описание">{{ old('desc') }}</textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="desc_tk">Описание (türkmen)</label>
-                                    <textarea class="form-control @error('desc_tk') is-invalid @enderror" name="desc_tk"
-                                        id="desc_tk" rows="5" placeholder="türkmen">{{ old('desc_tk') }}</textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="desc_en">Описание (english)</label>
-                                    <textarea class="form-control @error('desc_en') is-invalid @enderror" name="desc_en"
-                                        id="desc_en" rows="5" placeholder="english">{{ old('desc_en') }}</textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="updated_at">Дата добавление*</label>
-                                    <input type="text" name="updated_at"
-                                           class="form-control @error('updated_at') is-invalid @enderror"
-                                           placeholder="Дата добавление" value="{{old('updated_at')}}" data-mask
+                                    <label for="date">Дата добавление*</label>
+                                    <input type="text" name="date"
+                                           class="form-control @error('date') is-invalid @enderror"
+                                           placeholder="Дата добавление" value="{{old('date')}}" data-mask
                                            data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy.mm.dd">
                                 </div>
                             </div>
@@ -97,6 +192,13 @@
         <script src="{{ asset('assets/admin/ckfinder/ckfinder.js') }}"></script>
 
         <script src="{{ asset('assets/admin/js/ckfinder-desc.js') }}"></script>
+
+        <script>
+            $('#datemask').inputmask('dd.mm.yyyy', {
+                'placeholder': 'dd.mm.yyyy'
+            });
+            $('[data-mask]').inputmask()
+        </script>
     @endpush
 
     <!-- /.content -->

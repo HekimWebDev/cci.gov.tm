@@ -25,7 +25,7 @@
                                         <img src="{{ $n->getImage() }}" style="max-height:375px" class="scale img-fluid">
                                     </div>
                                     <p>{{ $n->__('title') }}</p>
-                                    <span>{{ $n->updated_at}}</span>
+                                    <span>{{ $n->date}}</span>
                                 </a>
                             </div>
                         </div>

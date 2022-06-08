@@ -8,7 +8,7 @@ class NewsController extends Controller
 {
     public function index(){
         $title = __('main.controllers.news');
-        $news = News::query()->orderBy('updated_at', 'desc')->paginate('9');
+        $news = News::orderByDesc('updated_at')->paginate('9');
         return view('org.news.news', compact('news', 'title'));
     }
 
