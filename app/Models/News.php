@@ -31,9 +31,7 @@ class News extends Model
         'desc_en',
         'desc_tk',
         'date',
-        'updated_at',
     ];
-    public $timestamps = false;
 
     public static function uploadImage(Request $request, $image = null)
     {

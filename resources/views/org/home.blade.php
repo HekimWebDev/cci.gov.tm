@@ -48,7 +48,7 @@
                                 <a href="{{ route('news_single', $new->slug) }}">
                                     <div><img src="{{ $new->getImage() }}" class="scale img-fluid" alt=""></div>
                                     <p style="padding: 0" class="pt-2">{{ Str::words($new->__('title'), 6, '...') }}</p>
-                                    <span>{{ $new->updated_at }}</span>
+                                    <span>{{ $new->date }}</span>
                                 </a>
                             </div>
                         </div>
