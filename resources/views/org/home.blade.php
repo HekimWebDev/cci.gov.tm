@@ -161,34 +161,34 @@
         </div>
     </div>
 
-{{--    --}}{{-- partners --}}
-{{--    <section class="">--}}
-{{--        <div class="main m-auto">--}}
-{{--            <h2>@lang('home/home.partners')</h2>--}}
-{{--        </div>--}}
-{{--        <div id="partners" class="container owl-carousel">--}}
+    {{--partners--}}
+    <section class="">
+        <div class="main m-auto">
+            <h2>@lang('home/home.partners')</h2>
+        </div>
+        <div id="partners" class="container owl-carousel">
 
-{{--            @foreach ($partners as $partner)--}}
-{{--                @continue($partner->thumbnail == null)--}}
-{{--                <div class="row align-items-center justify-content-center">--}}
-{{--                    <div class="cub">--}}
-{{--                        <div class="partner" style="height: 130px">--}}
-{{--                            <div><img src="{{ $partner->getImage() }}" alt="">--}}
-{{--                                <style>--}}
-{{--                                    .partner div img {--}}
-{{--                                        display: flex !important;--}}
-{{--                                        width: 100% !important;--}}
-{{--                                        padding: .5rem 0px;--}}
-{{--                                        margin-left: 2.1rem;--}}
-{{--                                    }--}}
-{{--                                </style>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div><!-- /.col-lg-2 -->--}}
-{{--                </div>--}}
-{{--            @endforeach--}}
-{{--        </div>--}}
-{{--    </section>--}}
+            @foreach ($partners as $partner)
+                @continue($partner->thumbnail == null)
+                <div class="row align-items-center justify-content-center">
+                    <div class="cub">
+                        <div class="partner" style="height: 130px">
+                            <div><img src="{{ $partner->getImage() }}" alt="">
+                                <style>
+                                    .partner div img {
+                                        display: flex !important;
+                                        width: 100% !important;
+                                        padding: .5rem 0px;
+                                        margin-left: 2.1rem;
+                                    }
+                                </style>
+                            </div>
+                        </div>
+                    </div><!-- /.col-lg-2 -->
+                </div>
+            @endforeach
+        </div>
+    </section>
 
     @push('scripts')
         <script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
