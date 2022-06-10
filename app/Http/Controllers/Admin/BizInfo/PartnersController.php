@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\BizInfo;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Partners\PartnersStoreRequest;
+use App\Http\Requests\Partners\PartnersUpdateRequest;
 use App\Models\Partner;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -18,9 +20,7 @@ class PartnersController extends Controller
     }
 
 
-    public function show($id){
-        $partner = partner::find($id);
-
+    public function show(Partner $partner){
         return view('admin.biz_info.partners.single', compact('partner'));
     }
 
@@ -31,26 +31,11 @@ class PartnersController extends Controller
     }
 
 
-    public function store(Request $request): RedirectResponse
+    public function store(PartnersStoreRequest $request): RedirectResponse
     {
-        $request->validate([
-            'name' => 'required|string|min:3|max:255',
-            'name_en' => 'nullable|string|min:3|max:255',
-            'name_tk' => 'nullable|string|min:3|max:255',
-            'title' => 'required|string|min:3|max:255',
-            'title_en' => 'nullable|string|min:3|max:255',
-            'title_tk' => 'nullable|string|min:3|max:255',
-            'phone' => 'nullable|string|min:7|max:255',
-            'faks' => 'nullable|string|min:7|max:255',
-            'email' => 'nullable|email|max:255',
-            'web' => 'nullable|string|min:5|max:255',
-            'adress' => 'nullable|string|min:4|max:255',
-            'adress_en' => 'nullable|string|min:4|max:255',
-            'adress_tk' => 'nullable|string|min:4|max:255',
-            'thumbnail' => 'nullable|image',
-        ]);
+        $data = $request->validated();
 
-        $data = $request->all();
+        $data['is_show'] = $request->boolean('is_show');
 
         $data['thumbnail'] = Partner::uploadImage($request);
 
@@ -60,36 +45,17 @@ class PartnersController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit(Partner $partner)
     {
-        $partner = partner::find($id);
-
         return view('admin.biz_info.partners.edit', compact('partner'));
     }
 
 
-    public function update(Request $request, $id): RedirectResponse
+    public function update(PartnersUpdateRequest $request, Partner $partner): RedirectResponse
     {
-        $request->validate([
-            'name' => 'required|string|min:3|max:255',
-            'name_en' => 'nullable|string|min:3|max:255',
-            'name_tk' => 'nullable|string|min:3|max:255',
-            'title' => 'required|string|min:3|max:255',
-            'title_en' => 'nullable|string|min:3|max:255',
-            'title_tk' => 'nullable|string|min:3|max:255',
-            'phone' => 'nullable|string|min:7|max:255',
-            'faks' => 'nullable|string|min:7|max:255',
-            'email' => 'nullable|string|email|max:255',
-            'web' => 'nullable|string|min:5|max:255',
-            'adress' => 'nullable|string|min:5|max:255',
-            'adress_en' => 'nullable|string|min:5|max:255',
-            'adress_tk' => 'nullable|string|min:5|max:255',
-            'thumbnail' => 'nullable|image',
-        ]);
+        $data = $request->validated();
 
-        $partner = Partner::find($id);
-
-        $data = $request->all();
+        $data['is_show'] = $request->boolean('is_show');
 
         if ($file = Partner::uploadImage($request, $partner->thumbnail)) {
             $data['thumbnail'] = $file;
@@ -101,13 +67,11 @@ class PartnersController extends Controller
     }
 
 
-    public function destroy($id): RedirectResponse
+    public function destroy(Partner $partner): RedirectResponse
     {
-        $partner = Partner::find($id);
-
         Storage::delete($partner->thumbnail);
 
-        $partner->delete($id);
+        $partner->delete();
 
         return redirect()->route('admin.biz-info.partners.index')->with('success', 'Партнёр успешно удалён');
     }

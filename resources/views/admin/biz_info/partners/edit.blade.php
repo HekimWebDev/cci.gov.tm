@@ -23,6 +23,17 @@
                             @csrf
                             @method('PUT')
                             <div class="card-body">
+                                {{-- Is show --}}
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" id="is_show"
+                                               class="custom-control-input @error('is_show') is-invalid @enderror"
+                                               name="is_show"
+                                               value="1" {{ old('is_show') || $partner->is_show == '1' ? 'checked' : '' }}>
+                                        <label class="custom-control-label" for="is_show">Показать в главном странице</label>
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label for="name">Имя (русский)*</label>
                                     <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
@@ -133,15 +144,9 @@
                                 <button type="submit" class="btn btn-primary">Сохранить</button>
                             </div>
                         </form>
-
                     </div>
-                    <!-- /.card -->
-
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
-    <!-- /.content -->
 @endsection

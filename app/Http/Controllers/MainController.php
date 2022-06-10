@@ -20,7 +20,7 @@ class MainController extends Controller
         $news = News::orderByDesc('updated_at')->get()->take('3');
         $newsCci = NewsCci::orderByDesc('updated_at')->get()->take('3');
         $galleries = Gallery::get();
-        $partners = Partner::select('thumbnail')->get();
+        $partners = Partner::select(['thumbnail', 'is_show'])->get();
         $banner = Banner::get();
         $carousels = Carousel::get();
         $title = __('main.controllers.main');

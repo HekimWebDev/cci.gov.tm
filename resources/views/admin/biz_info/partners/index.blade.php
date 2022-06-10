@@ -25,7 +25,8 @@
                                     <table class="table table-bordered table-hover table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Action </th>
+                                                <th>Action</th>
+                                                <th>Показать в главном странице</th>
                                                 <th>Имя</th>
                                                 <th>Заголовок</th>
                                                 <th>Телефон</th>
@@ -58,6 +59,7 @@
                                                             </button>
                                                         </form>
                                                     </td>
+                                                    <td>{{ $partner->is_show }}</td>
                                                     <td>{{ $partner->name }}</td>
                                                     <td>{{ $partner->title }}</td>
                                                     <td>{{ $partner->phone }}</td>

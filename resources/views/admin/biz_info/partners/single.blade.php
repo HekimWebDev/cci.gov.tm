@@ -22,6 +22,8 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                         <dl class="row">
+                            <dt class="col-sm-4">Показать в главном странице</dt>
+                            <dd class="col-sm-8">{{ $partner->is_show }}</dd>
                             <dt class="col-sm-4">Имя</dt>
                             <dd class="col-sm-8">{{ $partner->name }}</dd>
                             <dt class="col-sm-4">Имя(english)</dt>
