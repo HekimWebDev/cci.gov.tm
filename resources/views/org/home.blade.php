@@ -169,7 +169,7 @@
         <div id="partners" class="container owl-carousel">
 
             @foreach ($partners as $partner)
-                @continue($partner->thumbnail == null)
+                @continue($partner->thumbnail === null || $partner->is_show === 0)
                 <div class="row align-items-center justify-content-center">
                     <div class="cub">
                         <div class="partner" style="height: 130px">

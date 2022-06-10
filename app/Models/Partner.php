@@ -8,16 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-/**
- * Class Post
- * @package App\Models
- * @mixin Builder;
- */
 class Partner extends Model
 {
     use HasFactory, Translatable;
 
     protected $fillable = [
+        'is_show',
         'name',
         'name_en',
         'name_tk',
