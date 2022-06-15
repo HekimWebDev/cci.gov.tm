@@ -7,7 +7,7 @@
                 <div class="col-lg-8 cont2">
                     <div class="c1">
                         <p>@lang('main.contacts.adress')</p>
-                        <h3>{{ $adress[0]->__('adress') }}</h3>
+                        <h3>{{ $address[0]->__('adress') }}</h3>
                     </div>
                     @foreach ($contacts as $contact)
                         <div class="row r1 text-white" style="background-color: #01589d">
@@ -16,15 +16,15 @@
                             </div>
                             <div class="col-lg-6 cnt1">
                                 <p>@lang('main.contacts.phone')</p>
-                                <h3>{{ $contact->__('phone') }}</h3>
+                                <h3>{{ $contact->phone }}</h3>
                             </div>
                             <div class="col-lg-6 cnt1">
                                 <p>@lang('main.contacts.faks')</p>
-                                <h3>{{ $contact->__('faks') }}</h3>
+                                <h3>{{ $contact->faks }}</h3>
                             </div>
                             <div class="col-lg-6 cnt1">
                                 <p>@lang('main.contacts.email')</p>
-                                <h3>{{ $contact->__('email') }}</h3>
+                                <h3>{{ $contact->email }}</h3>
                             </div>
                         </div>
                     @endforeach
