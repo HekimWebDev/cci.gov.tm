@@ -93,7 +93,7 @@
         </div>
         <div class="row mt-5">
             <div class="col copyright">
-                <p class=""><small class="text-white-50">© 2019. All Rights Reserved.</small></p>
+                <p class=""><small class="text-white-50">{{ date('Y') }} @lang('home/home.footer.policy')</small></p>
             </div>
         </div>
     </div>
