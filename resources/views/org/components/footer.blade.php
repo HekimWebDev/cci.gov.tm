@@ -88,7 +88,7 @@
                <a style="color: #d7d6d6" href="{{ route('contacts') }}"><h4 class="mt-lg-0 mt-sm-4">@lang('home/home.footer.contact')</h4> </a>
                 <p><i class="fa fa-location-pin"></i>{{ $info[0]->__('adress') }}</p>
                 <p><i class=""></i>{{ $info[0]->phone }}</p>
-                <p><i class="fa fa-email"></i>{{ $info[0]->email }}/p>
+                <p><i class="fa fa-email"></i>{{ $info[0]->email }}</p>
             </div>
         </div>
         <div class="row mt-5">
