@@ -11,15 +11,18 @@ use App\Models\Partner;
 use App\Models\Tender;
 use App\Models\Tmexhibition;
 use App\Models\Tmoffer;
+use function Sodium\add;
 
 class AllController extends Controller
 {
     public function contacts()
     {
-        $adress = Informations::all();
-        $contacts = Contact::all();
+        $address = Informations::get();
+        $contacts = Contact::get();
         $title = __('main.controllers.contacts');
-        return view('org.contacts', compact('title', 'adress', 'contacts'));
+
+//        dd([$address, $contacts]);
+        return view('org.contacts', compact('title', 'address', 'contacts'));
     }
 
     public function tm_exhibition()

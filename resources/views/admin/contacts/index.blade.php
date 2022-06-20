@@ -63,18 +63,13 @@
                                 <p>Контакты пока нет...</p>
                             @endif
                         </div>
-                        <!-- /.card-body -->
                         <div class="card-footer clearfix">
                             {{ $contacts->links() }}
                         </div>
                     </div>
-                    <!-- /.card -->
-
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
     <!-- /.content -->
 @endsection
