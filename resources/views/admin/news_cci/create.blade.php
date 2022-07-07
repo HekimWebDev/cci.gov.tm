@@ -75,10 +75,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="date">Дата добавление*</label>
-                                    <input type="text" name="date"
-                                        class="form-control @error('date') is-invalid @enderror"
-                                        placeholder="Дата добавление" value="{{old('date')}}" data-mask
+                                    <label for="publish_at">Дата добавление*</label>
+                                    <input type="date" name="publish_at"
+                                        class="form-control @error('publish_at') is-invalid @enderror"
+                                        placeholder="Дата добавление" value="{{old('publish_at')}}" data-mask
                                         data-inputmask-alias="datetime" data-inputmask-inputformat="dd.mm.yyyy">
                                 </div>
 

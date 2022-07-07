@@ -21,6 +21,7 @@ class NewsCci extends Model
     protected $table = 'ccinews';
 
     protected $fillable = [
+        'publish_at',
         'slug',
         'title',
         'title_en',

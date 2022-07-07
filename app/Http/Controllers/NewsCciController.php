@@ -8,7 +8,7 @@ class NewsCciController extends Controller
 {
     public function index(){
         $title = __('main.controllers.news');
-        $news = NewsCci::query()->orderBy('id', 'desc')->paginate('9');
+        $news = NewsCci::orderByDesc('publish_at')->paginate('9');
         return view('org.news_cci.news', compact('news', 'title'));
     }
 

@@ -4,39 +4,31 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\NewsCci;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 
 class NewsCciController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $news = NewsCci::query()->orderBy('id', 'desc')->paginate(16);
+        $news = NewsCci::query()->orderBy('publish_at')->paginate(16);
+
         return view('admin.news_cci.index', compact('news'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Contracts\View\Factory \Illuminate\View\View
-     */
+
+
     public function create()
     {
         return view('admin.news_cci.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+
+    public function store(Request $request): RedirectResponse
     {
         $request->validate([
             'title' => 'required|string|min:3|max:255',
@@ -45,7 +37,7 @@ class NewsCciController extends Controller
             'desc' => 'required|string|min:5',
             'desc_en' => 'nullable|string|min:5',
             'desc_tk' => 'nullable|string|min:5',
-            'date' => 'required|string|min:9|max:10',
+            'publish_at' => 'required|date',
             'thumbnail' => 'required|image',
         ]);
 
@@ -55,26 +47,16 @@ class NewsCciController extends Controller
         return redirect()->route('news_cci.index')->with('success', 'Новость успешна сохранилась');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+
+    public function edit(NewsCci $newsCci)
     {
-        $news = NewsCci::find($id);
-        return view('admin.news_cci.edit', compact('news'));
+        return view('admin.news_cci.edit', compact('newsCci'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+
+    public function update(Request $request, NewsCci $newsCci): RedirectResponse
     {
         $request->validate([
             'title' => 'required|string|min:3|max:255',
@@ -83,31 +65,25 @@ class NewsCciController extends Controller
             'desc' => 'required|string|min:5',
             'desc_en' => 'nullable|string|min:5',
             'desc_tk' => 'nullable|string|min:5',
-            'date' => 'required|string|min:9|max:10',
+            'publish_at' => 'required|date',
             'thumbnail' => 'nullable|image',
         ]);
-        $news = NewsCci::find($id);
 
         $data = $request->all();
 
-        if ($file = NewsCci::uploadImage($request, $news->thumbnail)) {
+        if ($file = NewsCci::uploadImage($request, $newsCci->thumbnail)) {
             $data['thumbnail'] = $file;
         }
-        $news->update($data);
+        $newsCci->update($data);
         return redirect()->route('news_cci.index')->with('success', 'Новость успещна изменена');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+
+    public function destroy(NewsCci $newsCci): RedirectResponse
     {
-        $news = NewsCci::find($id);
-        Storage::delete($news->thumbnail);
-        $news->delete($id);
+        Storage::delete($newsCci->thumbnail);
+        $newsCci->delete();
         return redirect()->route('news_cci.index')->with('success', 'Новость успешна удалена');
     }
 }

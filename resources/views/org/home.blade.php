@@ -117,18 +117,22 @@
         <div class="m-photo">
             <div class="container ">
                 <div class="row">
-                    @foreach ($newsCci as $cci)
-                        @continue(($cci->__('title') && $cci->__('desc')) == false)
-                        <div class="col-md-4 col-xl-4 col-lg-4 m1-photo text-center">
-                            <div class="scale">
-                                <a href="{{ route('news_cci_single', $cci->slug) }}">
-                                    <div><img src="{{ $cci->getImage() }}" class="scale img-fluid" alt=""></div>
-                                    <p style="padding: 0" class="pt-2">{{ Str::words($cci->__('title'), 6, '...') }}</p>
-                                    <span>{{ $cci->updated_at->format('d.m.Y') }}</span>
-                                </a>
+                    <div class="card-group">
+                        @foreach ($newsCci as $cci)
+                            @continue(($cci->__('title') && $cci->__('desc')) == false)
+                            <div class="card m-2">
+                                <img class="card-img-top" src="{{ $cci->getImage() }}" alt="Card image cap">
+                                <div class="card-body">
+                                    <a href="{{ route('news_cci_single', $cci->slug) }}">
+                                        <p class="card-text text-dark">{{ $cci->__('title') }}</p>
+                                    </a>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">{{ $cci->publish_at }}</small>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </div>
