@@ -9,30 +9,38 @@
             background: #152F4F;
             color: white;
         }
+
         .footer .links ul {
             list-style-type: none;
         }
+
         .footer .links li a {
             color: white;
             transition: color 0.2s;
         }
+
         .footer .links li a:hover {
             text-decoration: none;
             color: #4180CB;
         }
+
         .footer .about-company i {
             font-size: 25px;
         }
+
         .footer .about-company a {
             color: white;
             transition: color 0.2s;
         }
+
         .footer .about-company a:hover {
             color: #4180CB;
         }
+
         .footer .location i {
             font-size: 18px;
         }
+
         .footer .copyright p {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -75,18 +83,22 @@
         <div class="m-photo">
             <div class="container ">
                 <div class="row">
-                    @foreach ($news as $new)
-                        @continue(($new->__('title') && $new->__('desc')) == false)
-                        <div class="col-md-4 col-xl-4 col-lg-4 m1-photo text-center">
-                            <div class="scale">
-                                <a href="{{ route('news_single', $new->slug) }}">
-                                    <div><img src="{{ $new->getImage() }}" class="scale img-fluid" alt=""></div>
-                                    <p style="padding: 0" class="pt-2">{{ $new->__('title') }}</p>
-                                    <span>{{ $new->date }}</span>
-                                </a>
+                    <div class="card-group">
+                        @foreach ($news as $new)
+                            @continue(($new->__('title') && $new->__('desc')) == false)
+                            <div class="card m-2">
+                                <img class="card-img-top" src="{{ $new->getImage() }}" alt="Card image cap">
+                                <div class="card-body">
+                                    <a href="{{ route('news_single', $new->slug) }}">
+                                        <p class="card-text text-dark">{{ $new->__('title') }}</p>
+                                    </a>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">{{ $new->publish_at }}</small>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </div>
@@ -229,7 +241,7 @@
 
         {{-- carousel gallery --}}
         <script>
-            $(function() {
+            $(function () {
                 if ($('.owl-2').length > 0) {
                     $('.owl-2').owlCarousel({
                         center: true,

@@ -159,14 +159,14 @@
                                     </div>
                                 </div>
 
-                                {{-- date --}}
-                                <div class="form-group">
-                                    <label for="date">Дата добавление</label>
+                                {{-- publish_at --}}
+                                <div class="form-group col-5">
+                                    <label for="publish_at">Дата добавление</label>
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                                        <input type="text" name="date" value="{{ $news->date }}" data-mask
-                                               class="form-control @error('date') is-invalid @enderror"
-                                               data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy.mm.dd">
+                                        <input type="date" name="publish_at" value="{{ $news->publish_at }}" data-mask
+                                               class="form-control @error('publish_at') is-invalid @enderror"
+                                               data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd">
                                     </div>
                                 </div>
 
@@ -207,8 +207,8 @@
         <script src="{{ asset('assets/admin/js/ckfinder-desc.js') }}"></script>
 
         <script>
-            $('#datemask').inputmask('dd.mm.yyyy', {
-                'placeholder': 'dd.mm.yyyy'
+            $('#datemask').inputmask('yyyy-mm-dd', {
+                'placeholder': 'yyyy-mm-dd'
             });
             $('[data-mask]').inputmask()
         </script>

@@ -17,6 +17,7 @@ class News extends Model
     protected $table = 'news';
 
     protected $fillable = [
+        'publish_at',
         'slug',
         'title',
         'title_en',

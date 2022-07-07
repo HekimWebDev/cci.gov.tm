@@ -18,7 +18,8 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $news = News::orderByDesc('updated_at')->paginate(16);
+        $news = News::orderByDesc('publish_at')->paginate(16);
+
         return view('admin.news.index', compact('news'));
     }
 
@@ -59,10 +60,8 @@ class NewsController extends Controller
             $data['thumbnail'] = $file;
         }
 
-//        $date = date_create($data['updated_at']);
-//        $data['updated_at'] = date_format($date['date'], "Y.m.d");
-        $data['date'] = $data['updated_at'];
         $news->update($data);
+
         return redirect()->route('news.index')->with('success', 'Новость успещна изменена');
     }
 
@@ -70,7 +69,7 @@ class NewsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return Response
+     * @return RedirectResponse
      */
     public function destroy($id)
     {

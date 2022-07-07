@@ -15,7 +15,7 @@ class NewsUpdateRequest extends FormRequest
             'desc' => 'required|string|min:5',
             'desc_en' => 'nullable|string|min:5',
             'desc_tk' => 'nullable|string|min:5',
-            'date' => 'required|string|min:9|max:10',
+            'publish_at' => 'required|date',
             'thumbnail' => 'nullable|image',
         ];
     }
