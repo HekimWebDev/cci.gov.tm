@@ -159,6 +159,7 @@
                                     </div>
                                 </div>
 
+                                {{-- date --}}
                                 <div class="form-group">
                                     <label for="date">Дата добавление</label>
                                     <div class="input-group-prepend">
@@ -169,6 +170,7 @@
                                     </div>
                                 </div>
 
+                                {{-- image --}}
                                 <div>
                                     <img style="width: 400px" src="{{ $news->getImage() }}" class="img-thumbnail"
                                          alt="">

@@ -20,8 +20,6 @@
 
     <title>@yield('title')</title>
 
-{{--    <script src="//code-ya.jivosite.com/widget/48kN4sKNpf" async></script>--}}
-
     @stack('styles')
 
     <style>
