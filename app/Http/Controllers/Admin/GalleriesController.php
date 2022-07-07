@@ -11,52 +11,49 @@ use Illuminate\Support\Facades\Storage;
 
 class GalleriesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $galleries = Gallery::query()->orderBy('id', 'desc')->paginate(15);
+        $galleries = Gallery::orderByDesc('id')->paginate(15);
+
         return view('admin.galleries.index', compact('galleries'));
     }
 
+
+
     public function single($id){
         $gallery = Gallery::find($id);
+
         $album = Str::of($gallery->album)->explode(',');
+
         return view('admin.galleries.single', compact('gallery', 'album'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Contracts\View\Factory \Illuminate\View\View
-     */
+
+
     public function create()
     {
         return view('admin.galleries.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function store(Request $request)
     {
-        $request->validate([
+//        dd($request->all());
+        $data = $request->validate([
             'title' => 'required|min:3|max:255|string',
             'title_en' => 'required|min:3|max:255|string',
             'title_tk' => 'required|min:3|max:255|string',
             'thumbnail' => 'required|image',
             'album[]' => 'nullable|image',
         ]);
-        $data = $request->all();
+
         $data['thumbnail'] = Gallery::uploadImage($request);
+
         $data['album'] = Gallery::uploadImageMultipl($request);
+
         Gallery::create($data);
+
         return redirect()->route('galleries.index')->with('success', 'Изображение добавлено');
     }
 

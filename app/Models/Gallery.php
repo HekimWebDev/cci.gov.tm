@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Stringable;
 
 /**
  * Class Post
@@ -41,7 +42,7 @@ class Gallery extends Model
         return null;
     }
 
-    public static function uploadImageMultipl(Request $request, $image = null)
+    public static function uploadImageMultipl(Request $request, $image = null): ?Stringable
     {
         if ($request->hasFile('album')) {
             if ($image) {

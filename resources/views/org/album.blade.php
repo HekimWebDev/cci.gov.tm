@@ -22,9 +22,9 @@
         <div class="row">
             @foreach ($album as $a)
                 <div class="col-sm-3 col-lg-4" style="padding: 2px">
-                    <a target="_blank" href="/uploads/{{ $a }}" data-toggle="lightbox"
+                    <a target="_blank" href="{{ asset('uploads/'.$a) }}" data-toggle="lightbox"
                         data-gallery="example-gallery">
-                        <img src="/uploads/{{ $a }}" class="img-fluid " alt="">
+                        <img src="{{ asset('uploads/'.$a) }}" class="img-fluid " alt="">
                     </a>
                 </div>
             @endforeach
