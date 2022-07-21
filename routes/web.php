@@ -73,4 +73,6 @@ Route::group(['middleware' => 'set_locale'], (static function () {
         Route::get('/tm-offers', TmOffersController::class)->name('tm-offers');
         Route::get('/position', PositionController::class)->name('position');
     });
+
+    Route::feeds();
 }));

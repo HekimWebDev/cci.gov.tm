@@ -18,6 +18,8 @@
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('assets/front/css/ckeditor-style.css') }}">
 
+    @include('feed::links')
+
     <title>@yield('title')</title>
 
     @stack('styles')
