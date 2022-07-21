@@ -13,12 +13,12 @@ class NewsItem extends News implements Feedable
     {
 //        dd([$this->publish_at, now()]);
         return FeedItem::create([
-            'id'         => $this->id,
-            'title'      => $this->title,
-            'summary'    => $this->desc,
-            'updated'    => Carbon::parse($this->publish_at),
-            'link'       => route('news_single', $this->slug),
-            'authorName' => 'cci.gov.tm',
+            'id'      => $this->id,
+            'title'   => $this->title,
+            'summary' => $this->desc,
+            'updated' => Carbon::parse($this->publish_at),
+            'link'    => route('news_single', $this->slug),
+            'author'  => 'cci.gov.tm',
         ]);
     }
 
