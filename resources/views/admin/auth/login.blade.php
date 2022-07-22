@@ -61,7 +61,7 @@
                         {{ session('error') }}
                     </div>
                 @endif
-                <form action="{{ route('login') }}" method="post">
+                <form action="{{ route('auth.login') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
@@ -88,39 +88,16 @@
                             <button type="submit" class="btn btn-primary btn-block">Авторизоваться</button>
                         </div>
                         <ul>
-                            <li><a class="ml-2" href="{{ route('register') }}">Регистрация</a></li>
-                            <li><a class="ml-2" href="{{ route('password.request') }}">Забыл пароль</a></li>
+{{--                            <li><a class="ml-2" href="{{ route('password.request') }}">Забыл пароль</a></li>--}}
                         </ul>
                     </div>
                 </form>
             </div>
         </div><!-- /.card -->
     </div>
+
     <script src="{{ asset('assets/admin/js/admin.js') }}"></script>
-    {{-- parol js --}}
-    {{-- <script>
-        function show() {
-            var p = document.getElementById('password');
-            p.setAttribute('type', 'text');
-        }
 
-        function hide() {
-            var p = document.getElementById('password');
-            p.setAttribute('type', 'password');
-        }
-
-        var pwShown = 0;
-
-        document.getElementById("eye").addEventListener("click", function() {
-            if (pwShown == 0) {
-                pwShown = 1;
-                show();
-            } else {
-                pwShown = 0;
-                hide();
-            }
-        }, false);
-    </script> --}}
     <script>
         $('body').on('click', '.password-control', function() {
             if ($('#password-input').attr('type') == 'password') {

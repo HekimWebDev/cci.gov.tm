@@ -11,7 +11,6 @@ class NewsItem extends News implements Feedable
 {
     public function toFeedItem(): FeedItem
     {
-//        dd([$this->publish_at, now()]);
         return FeedItem::create([
             'id'      => $this->id,
             'title'   => $this->title,

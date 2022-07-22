@@ -16,7 +16,7 @@ use App\Http\Controllers\Admin\FoExhibitionsController;
 use App\Http\Controllers\Admin\GalleriesController;
 use App\Http\Controllers\Admin\InformationsController;
 use App\Http\Controllers\Admin\InvestmentsController;
-use App\Http\Controllers\Admin\MainController as AdminMainController;
+use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MembershipsController;
 use App\Http\Controllers\Admin\NewsCciController;
 use App\Http\Controllers\Admin\NewsController;
@@ -28,7 +28,7 @@ Route::group([
     'prefix' => '@dm1n',
     'middleware' => 'admin'
 ], static function () {
-    Route::get('/', [AdminMainController::class, 'index'])->name('admin.index');
+    Route::get('/', [MainController::class, 'index'])->name('admin.index');
 
     Route::group([
         'prefix' => 'biz-info',

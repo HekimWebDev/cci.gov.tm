@@ -9,11 +9,11 @@
     <div class="ml-4 row">
         <a href="https://app.jivosite.com/chat/inbox" target="_blank" class="btn btn-success mr-2">Jiva chat</a>
         <a href="{{ route('home') }}" class="btn btn-info mr-2">На сайт</a>
-        <a href="{{ route('logout') }}" class="btn btn-danger"
+        <a href="{{ route('auth.logout') }}" class="btn btn-danger"
            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             Выйти
         </a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+        <form id="logout-form" action="{{ route('auth.logout') }}" method="POST" class="hidden">
             @csrf
         </form>
     </div>

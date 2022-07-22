@@ -48,16 +48,6 @@ Route::group(['middleware' => 'set_locale'], (static function () {
     Route::get('/news-cci', [NewsCciController::class, 'index'])->name('news_cci');
     Route::get('/news-cci/{slug}', [NewsCciController::class, 'single'])->name('news_cci_single');
 
-/*    Route::get('/benefist', static function () {
-        $title = __('main.controllers.benefist');
-        return view('org.benifist', compact('title'));
-    })->name('benefist');*/
-
- /*   Route::get('/membership-joining', static function () {
-        $title = __('main.controllers.joining');
-        return view('org.membership-joining', compact('title'));
-    })->name('m-joining');*/
-
     Route::get('/contacts', [AllController::class, 'contacts'])->name('contacts');
     Route::get('/tm_exhibition', [AllController::class, 'tm_exhibition'])->name('tm-exhibition');
     Route::get('/fo_exhibition', [AllController::class, 'fo_exhibition'])->name('fo-exhibition');

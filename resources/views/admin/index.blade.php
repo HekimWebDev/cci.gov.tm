@@ -58,7 +58,7 @@
                                     <div class="card-header col-md-8">Настройки профиля</div>
                                     <div class="card-body register-card-body col-md-8">
 
-                                        <form class="form-horizontal" method="post"
+                                        {{--<form class="form-horizontal" method="post"
                                             action="{{ route('user-profile-information.update') }}">
                                             @csrf
                                             @method('PUT')
@@ -85,14 +85,14 @@
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-primary">Изменить</button>
-                                        </form>
+                                        </form>--}}
                                     </div>
                                 </div>
 
                                 <div class="tab-pane" id="settings">
                                     <div class="card-header col-md-8">Изменить пароль</div>
                                     <div class="card-body register-card-body col-md-8">
-                                        <form class="form-horizontal" method="post" id="my-form"
+                                        {{--<form class="form-horizontal" method="post" id="my-form"
                                             action="{{ route('user-password.update') }}">
                                             @csrf
                                             @method('PUT')
@@ -146,7 +146,7 @@
                                             <button type="button" class="btn btn-danger"
                                                 onclick="resetForm();">Отменить</button>
                                             <button type="submit" class="btn btn-primary">Изменить пароль</button>
-                                        </form>
+                                        </form>--}}
                                     </div>
                                 </div>
 
